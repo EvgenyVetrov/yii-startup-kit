@@ -1,0 +1,9 @@
+tmp/*
+vk/*
+users/avatars/*
+sitemaps/*
+!tmp/.gitkeep
+!vk/.gitkeep
+!users/.gitkeep
+!users/avatars/.gitkeep
+!sitemaps/.gitkeep
