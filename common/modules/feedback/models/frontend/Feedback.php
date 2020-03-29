@@ -27,7 +27,6 @@ class Feedback extends BaseFeedback
 
         if (!Yii::$app->user->isGuest) {
             $this->user_id = Yii::$app->user->identity->id;
-            $this->org_id  = Yii::$app->user->identity->current_organisation;
         }
         $this->type       = (int) $this->type;
         $this->object     = (int) $this->object;

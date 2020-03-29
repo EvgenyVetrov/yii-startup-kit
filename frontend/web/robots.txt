@@ -1,7 +1,0 @@
-User-agent: *
-Disallow: /policy
-Disallow: /login
-Disallow: /password-recovery
-Disallow: /offer/create
-Disallow: /cabinet
-Sitemap: https://zakupator.org/files/sitemaps/sitemap.xml

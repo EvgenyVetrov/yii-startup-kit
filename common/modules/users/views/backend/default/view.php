@@ -33,7 +33,6 @@ $columns[] = 'patronymic';
 $columns[] = 'contacts';
 $columns[] = 'phone';
 $columns[] = 'email';
-$columns[] = 'current_organisation';
 $columns[] = [
         'attribute' => 'time_last_visit',
             'format'=> ['date', 'HH:mm &#160; dd.MM.Y'],

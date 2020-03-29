@@ -382,27 +382,6 @@ $this->params['place'] = 'profile';
                     </div>
                 </div>
 
-                <!-- Текущая организация -->
-                <div class="row">
-                    <div class="col-xs-12 pl-20">
-                        <label class="col-xs-1 align-right pr-0 mr-0 pt-10 lead">
-                            <i class="fa fa-building pull-right"></i>
-                        </label>
-                        <div class="col-xs-10 pt-10">
-                            Текущая организация:<br><strong> <?= $model->current_organisation_brand ?></strong>
-                        </div>
-                        <div class="col-xs-1 align-right pr-5 mr-0 mt-0 pl-0 ml-0">
-                        <span class="btn btn-just-icon btn-simple ml-0 hover-rounded pt-10 mt-0 mb-0 pb-10"
-                              data-toggle="popover"
-                              data-placement="bottom"
-                              data-content="Организация с которой в настоящий момент вы работаете."
-                              title="Текущая организация">
-                            <i class="far fa-question-circle text-16 opacity-40"></i>
-                        </span>
-
-                        </div>
-                    </div>
-                </div>
 
                 <!-- email -->
                 <div class="row">

@@ -194,12 +194,6 @@ class Users extends BaseUsers {
     }
 
 
-    public function getOrganisation()
-    {
-        return $this->hasOne(BaseOrganisations::class, ['id' => 'current_organisation']);
-    }
-
-
 
     /**
      * Возвращает содержимое svg файла заглушки для аватара.

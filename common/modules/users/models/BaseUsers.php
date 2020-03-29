@@ -42,7 +42,6 @@ use modules\organisations\models\BaseOrganisations;
  * @property string  $ban_description
  * @property string  $ip
  * @property string  $ua
- * @property integer $current_organisation
  */
 
 class BaseUsers extends yii\db\ActiveRecord implements IdentityInterface
@@ -58,7 +57,6 @@ class BaseUsers extends yii\db\ActiveRecord implements IdentityInterface
      * @var
      */
     public $image_avatar;
-    public $current_organisation_brand;
 
     /**
      * @inheritdoc
@@ -158,7 +156,6 @@ class BaseUsers extends yii\db\ActiveRecord implements IdentityInterface
             'ban_description'          => Module::t('main', 'ATTR_BAN_DESCRIPTION'),
             'ip'                       => Module::t('main', 'ATTR_IP'),
             'ua'                       => Module::t('main', 'ATTR_UA'), // юзерагент
-            'current_organisation'     => 'Текущая организация',
         ];
     }
     
@@ -184,15 +181,6 @@ class BaseUsers extends yii\db\ActiveRecord implements IdentityInterface
     public function getId()
     {
         return $this->getPrimaryKey();
-    }
-
-    /**
-     * Связь с организациями todo: не работает
-     * @return yii\db\ActiveQuery
-     */
-    public function getOrganisation()
-    {
-        return $this->hasOne(BaseOrganisations::className(), ['id' => 'current_organisation']);
     }
 
     /**

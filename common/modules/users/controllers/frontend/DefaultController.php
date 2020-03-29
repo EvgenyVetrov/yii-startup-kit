@@ -68,12 +68,6 @@ class DefaultController extends Controller
         $model            = Yii::$app->user->identity;
         $model->scenario  = Users::SCENARIO_PROFILE;
 
-        if ($model->current_organisation) {
-            $organisationName = Organisations::find()->select(['brand'])->where(['id' => $model->current_organisation])->column();
-            $model->current_organisation_brand = $organisationName[0];
-        } else {
-            $model->current_organisation_brand = 'текущая организация не выбрана';
-        }
 
 
         if ($model->load(Yii::$app->request->post()) && $model->save()){
@@ -428,26 +422,6 @@ class DefaultController extends Controller
     }
 
 
-
-    /**
-     * Выбор текущей организации
-     * @param $id
-     * @return yii\web\Response
-     */
-    public function actionSetCurrentOrganisation($id){
-        $organisation = Organisations::findOne($id);
-        $user = Yii::$app->user->identity;
-        if ($organisation->canSetCurrentOrg()){ // todo: убогая проверка на то может ли юзер взять текущую организацию или нет
-            $user->current_organisation = $id; // todo: сделать защиту
-            $user->save();
-            Yii::$app->session->setFlash('success', 'Текущая организация: ' . $organisation->brand);
-            return $this->redirect('/my-organisations');
-        } else {
-            Yii::$app->session->setFlash('error', 'Вы не можете выбрать организацию: ' . $organisation->brand);
-            return $this->redirect('/my-organisations');
-        }
-
-    }
 
 
 

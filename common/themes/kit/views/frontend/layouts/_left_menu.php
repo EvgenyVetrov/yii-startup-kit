@@ -98,42 +98,6 @@ Tip 3: you can change the color of the sidebar with data-background-color="white
                         <b class="caret"></b>
                     </p>
                 </a>
-                <div class="collapse" id="pagesOrders">
-                    <ul class="nav">
-                        <?php if (Yii::$app->user->identity->current_organisation): ?>
-                        <li>
-                            <a href="#" data-action="pre-creation" data-action-url="/tender/create">
-                                <i class="material-icons">add_shopping_cart</i>
-                                <span class="sidebar-normal">Создать закупку</span>
-                            </a>
-                        </li>
-                        <?php endif; ?>
-                        <li>
-                            <a href="../pages/timeline.html">
-                                <i class="material-icons">shopping_cart</i>
-                                <span class="sidebar-normal">Мои закупки</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../pages/login.html">
-                                <i class="material-icons">search</i>
-                                <span class="sidebar-normal">Поиск закупок</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../pages/register.html">
-                                <i class="material-icons">hearing</i>
-                                <span class="sidebar-normal">Отслеживание закупок</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../pages/register.html">
-                                <i class="material-icons">reply</i>
-                                <span class="sidebar-normal">Мои отклики</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
             </li>
 
             <!-- о нас -->

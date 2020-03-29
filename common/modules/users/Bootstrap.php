@@ -36,15 +36,7 @@ class Bootstrap implements BootstrapInterface
             $rules['password-set/<code:(.*)>']               = 'users/default/set-password';
             $rules['unsubscribe-news/<code:(.*)>']           = 'users/default/unsubscribe-news';
             $rules['unsubscribe-notifications/<code:(.*)>']  = 'users/default/unsubscribe-notifications';
-            $rules['users/default/set-current-organisation'] = 'users/default/set-current-organisation';
 
-            $rules['team/<organisation_id:(\d+)>']           = 'users/default/team';
-            $rules['profile/create/<organisation_id:(\d+)>'] = 'users/profile/create';
-            $rules['profile/save']                           = 'users/profile/save'; // сохранение при создании
-            $rules['profile/save-edit/<profile_id:(\d+)>']   = 'users/profile/save-edit'; // сохранение при изменении
-            $rules['profile/edit/<profile_id:(\d+)>']        = 'users/profile/edit';
-            $rules['profile/delete/<id:(\d+)>']              = 'users/profile/delete';
-            $rules['profile/manage-invite/<mode:(\d+)>/<profile_id:(\d+)>'] = 'users/profile/manage-invite';
 
             $rules['users/default/user-avatar-modal']        = 'users/default/user-avatar-modal'; // вызов и загрузка модального окна для выбора аватарки
             $rules['users/default/save-avatar']              = 'users/default/save-avatar'; // отправка изображения сохранения аватара
