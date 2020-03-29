@@ -17,25 +17,19 @@ return [
         'modules\site\Bootstrap',
         'modules\blog\Bootstrap',
         'modules\users\Bootstrap',
-        'modules\tender\Bootstrap',
-        'modules\offers\Bootstrap',
         'modules\feedback\Bootstrap',
-        'modules\organisations\Bootstrap',
     ],
     'modules' => [
         'main'   => ['class' => 'modules\main\Module'],
         'site'    => ['class' => 'modules\site\Module'],
         'blog'    => ['class' => 'modules\blog\Module'],
         'users'    => ['class' => 'modules\users\Module'],
-        'tender'    => ['class' => 'modules\tender\Module'],
-        'offers'     => ['class' => 'modules\offers\Module'],
         'markdown'    => ['class' => 'kartik\markdown\Module'],
         'feedback'     => ['class' => 'modules\feedback\Module'],
-        'organisations' => ['class' => 'modules\organisations\Module'],
     ],
     'components' => [
         'view' => [
-            'theme' => 'themes\material\Theme'
+            'theme' => 'themes\kit\Theme'
         ],
         'request' => [
             'baseUrl' => '',
@@ -102,12 +96,6 @@ return [
                 'allow'       => true,
                 //'actions'     => ['index', 'opportunities', 'restrictions', 'policy', 'roadmap', 'support-us', 'about', 'intro'],
                 'controllers' => ['site/default'],
-                'roles'       => ['?', '@'],
-            ],
-            [
-                'allow'       => true,
-                'actions'     => ['view'],
-                'controllers' => ['tender/tenders'],
                 'roles'       => ['?', '@'],
             ],
             [

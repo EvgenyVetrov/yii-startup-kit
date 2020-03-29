@@ -11,7 +11,7 @@ use yii\helpers\ArrayHelper;
 use common\components\Image;
 use yii\db\BaseActiveRecord;
 use yii\base\InvalidParamException;
-use mongosoft\file\UploadImageBehavior;
+use mohorev\file\UploadImageBehavior;
 use Imagine\Image\ManipulatorInterface;
 
 /**
