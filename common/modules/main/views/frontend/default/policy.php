@@ -9,8 +9,8 @@ $this->params['pageIcon']        = 'info';
 $this->params['breadcrumbs'][]   = $this->title;
 ?>
 
-<div class="box">
-    <div class="box-body content">
+<div class="card card-outline card-primary">
+    <div class="card-body content">
         <p>Администрация сайта <strong>http://hamster.pro/</strong> (далее Сайт) с уважением относится к правам посетителей Сайта. Мы безоговорочно признаем важность конфиденциальности личной информации посетителей нашего Сайта.<br>
             Посещая Сайт, Вы полностью соглашаетесь с данной Политикой конфиденциальности.<br>
             Основные положения нашей политики конфиденциальности формулируются следующим образом:</p>

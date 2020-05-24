@@ -9,8 +9,8 @@ $this->params['pageIcon']        = 'info';
 $this->params['breadcrumbs'][]   = $this->title;
 ?>
 
-<div class="box">
-    <div class="box-body content">
+<div class="card card-outline card-primary">
+    <div class="card-body content">
         <p>
             Настоящее предложение является публичной офертой (именуемой в дальнейшем «Договор») web-сайта hamster.pro (именуемого в дальнейшем «Исполнитель») и адресовано любому лицу, заинтересованному в получении услуг, предоставляемых Исполнителем.
         </p>

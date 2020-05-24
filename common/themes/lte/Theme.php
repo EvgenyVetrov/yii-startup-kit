@@ -67,28 +67,43 @@ class Theme extends yii\base\Theme {
                     ]);
                 },
                 'view' => function ($url, $model, $key) {
-                    return Html::a('<i class="fa fa-eye"></i> ' . Yii::t('app', 'BTN_VIEW'), $url, [
-                        'class' => 'btn btn-xs btn-primary',
-                        'title' => Yii::t('app', 'BTN_VIEW'),
+                    return Html::a('<i class="fa fa-eye"></i> ' /*. Yii::t('app', 'BTN_VIEW')*/, $url, [
+                        'class'     => 'btn btn-xs btn-primary',
+                        'title'     => Yii::t('app', 'BTN_VIEW'),
                         'data-pjax' => 0,
                     ]);
                 },
                 'update' => function ($url, $model, $key) {
-                    return Html::a('<i class="fa fa-edit"></i> ' . Yii::t('app', 'BTN_UPDATE'), $url, [
-                        'class' => 'btn btn-xs btn-warning',
-                        'title' => Yii::t('app', 'BTN_UPDATE'),
+                    return Html::a('<i class="fa fa-edit"></i> ' /*. Yii::t('app', 'BTN_UPDATE')*/, $url, [
+                        'class'     => 'btn btn-xs btn-warning',
+                        'title'     => Yii::t('app', 'BTN_UPDATE'),
                         'data-pjax' => 0,
                     ]);
                 },
                 'delete' => function ($url, $model, $key) {
-                    return Html::a('<i class="fa fa-times"></i> ' . Yii::t('app', 'BTN_DELETE'), $url, [
+                    return '
+                    <span class="btn btn-xs btn-danger"  
+                            title="'.Yii::t('app', 'BTN_DELETE').'" 
+                            data-method="post" 
+                            data-pjax="0" 
+                            data-action="confirmation" 
+                            data-action-url="'.$url.'" 
+                            data-action-title="'.Yii::t('app', 'CONFIRM_DELETE').'">
+                                <i class="fa fa-times"></i>
+                    </span>
+                    ';
+
+
+                    /*return Html::a('<i class="fa fa-times"></i> ' . Yii::t('app', 'BTN_DELETE'), $url, [
                         'class' => 'btn btn-xs btn-danger', 'data-method' => 'post',
                         'title' => Yii::t('app', 'BTN_DELETE'),
-                        'data' => [
-                            'pjax' => 0,
-                            'confirm' => Yii::t('app', 'CONFIRM_DELETE')
+                        'data'  => [
+                            'pjax'           => 0,
+                            'action'         => 'confirm',
+                            'action-url'     => $url,
+                            'action-title'   => Yii::t('app', 'CONFIRM_DELETE'),
                         ],
-                    ]);
+                    ]);*/
                 }
             ],
             'template' => '<div class="text-center">{update} {delete}</div>'

@@ -208,37 +208,6 @@ class Users extends BaseUsers {
 
 
     /**
-     * Возвращает массив с контактами, которые можно отобразить для данного юзера (с учетом профиля юзера для текущей организации)
-     * todo: хрень завязываться на текущую организацию((
-     * @return array|bool
-     */
-    public function getContactInfo()
-    {
-        if ($this->contacts_info) {
-            return $this->contacts_info;
-        }
-
-        $profile = $this->currentOrgProfile; /** @var $profile Profiles */
-
-        if ($profile) {
-            $this->contacts_info = [
-                'custom_contacts' => $profile->custom_contacts,
-                'position' => $profile->position,
-                'phone' => $this->phone,
-            ];
-        } else {
-            $this->contacts_info = [
-                'custom_contacts' => $this->contacts,
-                'position' => '',
-                'phone' => $this->phone,
-            ];
-        }
-
-        return $this->contacts_info;
-    }
-
-
-    /**
      * @inheritdoc
      */
     public function beforeSave($insert)

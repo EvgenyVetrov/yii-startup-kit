@@ -10,39 +10,47 @@ use yii\web\AssetBundle;
 class MainAsset extends AssetBundle{
     public $sourcePath = '@themes/lte/assets';
     public $css = [
-        'https://fonts.googleapis.com/css?family=Kurale|Roboto|Roboto+Condensed|Open+Sans',
-        'plugins/fontawesome-free/css/fontawesome.min.css',
-        //'https://fonts.googleapis.com/icon?family=Material+Icons',
-        'plugins/select2/select2.min.css',
-        'dist/css/adminlte.css',
-        'plugins/tags/jquery.tagsinput.css',
-        'plugins/datetimepicker/bootstrap-datetimepicker.min.css',
-        'plugins/iCheck/minimal/blue.css',
-        'dist/css/skins/_all-skins.css',
+        'plugins/select2/css/select2.min.css',
+        //'plugins/tags/jquery.tagsinput.css',
+        //'plugins/datetimepicker/bootstrap-datetimepicker.min.css',
+        //'plugins/iCheck/minimal/blue.css',
+        //'dist/css/skins/_all-skins.css',
+
         //'dist/css/main.css?v=16',
-        'dist/css/main.css',
+
+
+        'plugins/fontawesome-free/css/all.min.css',
+        'plugins/fontawesome-free/webfonts/fa-regular-400.ttf',
+        'plugins/fontawesome-free/webfonts/fa-regular-400.woff',
+        'plugins/fontawesome-free/webfonts/fa-solid-900.ttf',
+        'plugins/fontawesome-free/webfonts/fa-solid-900.woff',
+        //'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css',
+        'dist/css/adminlte.css',
+        'dist/css/custom.css',
     ];
     public $js = [
-        'plugins/select2/select2.full.js',
-        'plugins/select2/i18n/ru.js',
-        'plugins/slimScroll/jquery.slimscroll.min.js',
-        'plugins/fastclick/fastclick.min.js',
-        'plugins/tags/jquery.tagsinput.js',
-        'plugins/moment/moment.js',
-        'plugins/moment/locales/ru.js',
-        'plugins/datetimepicker/bootstrap-datetimepicker.min.js',
-        'plugins/datatable-responsive/datatable-responsive.js',
-        'plugins/clipboard/clipboard.min.js',
-        'plugins/autoresize/autoresize.js',
-        'plugins/iCheck/icheck.min.js',
+        'plugins/select2/js/select2.full.js',
+        'plugins/select2/js/i18n/ru.js',
+
+        'plugins/moment/moment.min.js',
+        'plugins/moment/locale/ru.js',
+
+        //'plugins/datetimepicker/bootstrap-datetimepicker.min.js',
+        //'plugins/datatable-responsive/datatable-responsive.js',
         'plugins/sweetalert2/sweetalert2.all.js',
+        //'build/js/Toasts.js',
+        //'build/js/Treeview.js',
+        'plugins/bootstrap/js/bootstrap.bundle.js',
+        'dist/js/adminlte.js',
+        'dist/js/demo.js',
+        'dist/js/common.js',
         //'plugins/ace-editor/ace.js',
-        'dist/js/app.js'
+        //'dist/js/app.js'
         //'dist/js/app.min.js?v=2.0.4'
     ];
     public $depends = [
         'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
-        'yii\bootstrap\BootstrapPluginAsset',
+        //'yii\bootstrap\BootstrapAsset',
+        //'yii\bootstrap\BootstrapPluginAsset',
     ];
 }

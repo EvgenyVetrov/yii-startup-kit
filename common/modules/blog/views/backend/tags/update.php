@@ -10,7 +10,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Теги для блога', 'url'
 $this->params['breadcrumbs'][] = $model->name;
 
 $this->params['content-fixed'] = true;
-$this->params['pageIcon'] = 'tags';
+$this->params['pageIcon'] = 'fas fa-tags';
 $this->params['place']    = 'blog-tags';
 ?>
 <div class="blog-tags-update">

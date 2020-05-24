@@ -18,7 +18,7 @@ $this->title                     = 'Пользователь ' . $model->email;
 $this->params['pageTitle']       = $model->email;
 
 $this->params['place']           = 'users';
-$this->params['pageIcon']        = 'users';
+$this->params['pageIcon']        = 'fas fa-user';
 $this->params['breadcrumbs'][]   = ['label' => 'Пользователи', 'url' => ['index']];
 $this->params['breadcrumbs'][]   = $model->email;
 
@@ -83,8 +83,8 @@ if ($model->utm_source){
 ?>
 
 <!-- Информация -->
-<div class="box">
-    <div class="box-header">
+<div class="card card-outline card-primary">
+    <div class="card-header">
 
         <?php if (Yii::$app->user->can('users-crud') || Yii::$app->user->can('users-auth')): ?>
             <div class="btn-group">
@@ -140,7 +140,7 @@ if ($model->utm_source){
             </div>
         <?php endif; ?>
     </div>
-    <div class="box-body no-padding">
+    <div class="card-body no-padding">
         <?= DetailView::widget([
             'model' => $model,
             'attributes' => $columns,
@@ -149,11 +149,11 @@ if ($model->utm_source){
 </div>
 
 <!-- Журнал действий -->
-<div class="box">
-    <div class="box-header">
+<div class="card card-outline card-primary">
+    <div class="card-header">
         <h3>Журнал действий</h3>
     </div>
-    <div class="box-body no-padding">
+    <div class="card-body no-padding">
         <?= GridView::widget([
             'dataProvider' => $log,
             'columns' => [

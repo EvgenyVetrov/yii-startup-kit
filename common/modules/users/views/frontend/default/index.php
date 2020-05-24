@@ -13,7 +13,7 @@ use common\widgets\crop\Widget;
  */
 
 $this->title                     = 'Профиль';
-$this->params['pageIcon']        = 'user';
+$this->params['pageIcon']        = 'fas user';
 $this->params['place']           = 'user';
 $this->params['pageTitle']       = $this->title;
 $this->params['breadcrumbs'][]   = $this->title;

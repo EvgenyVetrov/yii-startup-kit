@@ -27,6 +27,7 @@ return [
     'TITLE_MODAL_SUCCESS'                   => 'Поздравляем!',
     'TITLE_MODAL_ERROR'                     => 'Ошибка!',
     'TITLE_MODAL_WARNING'                   => 'Внимание!',
+    'TITLE_MODAL_INFO'                      => 'Уведомление',
     'TITLE_GUIDE_ACTIVATE_EMAIL'            => 'Активация учетной записи',
     'SUCCESS_SAVE_DATA'                     => 'Данные успешно сохранены!',
 

@@ -21,8 +21,8 @@ $this->params['breadcrumbs'][]   = ['label' => $this->title, 'url' => ['index']]
 $this->params['breadcrumbs'][]   = $action;
 ?>
 
-<div class="box">
-    <div class="box-body no-padding">
+<div class="card card-outline card-primary">
+    <div class="card-body no-padding">
         <?= DetailView::widget([
             'model' => $model,
             'attributes' => [

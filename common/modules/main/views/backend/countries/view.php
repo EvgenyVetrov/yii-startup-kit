@@ -14,8 +14,8 @@ $this->params['pageTitle']     = $this->title;
 $this->params['content-fixed'] = true; /* фиксируем ширину */
 $this->params['place'] = 'countries';
 ?>
-<div class="box">
-    <div class="box-header">
+<div class="card card-outline card-primary">
+    <div class="card-header">
         <?= Html::a('<i class="fa fa-edit"></i> Изменить', ['update', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
         <?= Html::a('<i class="fa fa-times"></i> Удалить', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
@@ -28,7 +28,7 @@ $this->params['place'] = 'countries';
         ]) ?>
     </div>
 
-    <div class="box-body no-padding">
+    <div class="card-body no-padding">
         <?= DetailView::widget([
             'model' => $model,
             'attributes' => [

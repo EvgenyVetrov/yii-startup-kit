@@ -1,0 +1,42 @@
+/* кастомные стили для элементов админки */
+.is-site-bg-img2 {
+    background: url(../img/backgrounds/bg1.jpg) no-repeat fixed;
+    background-size: cover;
+}
+
+@media (min-width: 412px) {
+    .content-fixed {
+        width: 400px;
+    }
+}
+
+@media (min-width: 768px) {
+    .content-fixed {
+        width: 730px;
+    }
+}
+
+@media (min-width: 992px) {
+    .content-fixed {
+        width: 750px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .content-fixed {
+        width: 900px;
+    }
+}
+
+
+.opacity-0  { opacity: 0; }
+.opacity-10 { opacity: .1; }
+.opacity-20 { opacity: .2; }
+.opacity-30 { opacity: .3; }
+.opacity-40 { opacity: .4; }
+.opacity-50 { opacity: .5; }
+.opacity-60 { opacity: .6; }
+.opacity-70 { opacity: .7; }
+.opacity-80 { opacity: .8; }
+.opacity-90 { opacity: .9; }
+.opacity-100 { opacity: 1; }

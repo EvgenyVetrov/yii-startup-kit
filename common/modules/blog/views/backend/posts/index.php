@@ -11,17 +11,17 @@ $this->title                   = 'Статьи для блога';
 $this->params['pageTitle']     = $this->title;
 $this->params['breadcrumbs'][] = $this->title;
 
-$this->params['pageIcon'] = 'file-text-o';
+$this->params['pageIcon'] = 'fas file-text-o';
 $this->params['place']    = 'blog-posts';
 ?>
-<div class="blog-posts-index box">
+<div class="blog-posts-index card card-primary card-outline">
 
                     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
     
-    <div class="box-header">
+    <div class="card-header">
         <?= Html::a('<i class="fa fa-plus"></i> Добавить', ['create'], ['class' => 'btn btn-primary']) ?>
     </div>
-    <div class="box-body no-padding">
+    <div class="card-body no-padding">
             <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,

@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][]   = $this->title;
     <?php $form = ActiveForm::begin(); ?>
 
     <div class="box box-confirm">
-        <div class="box-body">
+        <div class="card-body">
             <h3>
                 <?= Module::t('main', 'MESSAGE_UNSUBSCRIBE_NEWS_CONFIRM_TITLE') ?>
             </h3>

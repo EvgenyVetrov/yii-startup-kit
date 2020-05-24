@@ -11,8 +11,8 @@ use yii\widgets\ActiveForm;
 
 <?php $form = ActiveForm::begin(); ?>
 
-<div class="box">
-    <div class="box-body">
+<div class="card card-outline card-primary">
+    <div class="card-body">
         <div class="col-md-5">
             <div class="row">
 

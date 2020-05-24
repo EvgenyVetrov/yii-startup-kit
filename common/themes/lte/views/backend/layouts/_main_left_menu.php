@@ -11,277 +11,187 @@ use yii\helpers\Url;
 
 ?>
 
-<aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-        <!-- sidebar menu: : style can be found in sidebar.less -->
-        <ul class="sidebar-menu">
-            <?php if (Yii::$app->user->can('users-view')): ?>
-                <li id="place-users">
-                    <a href="<?= Url::to(['/users/default/index']) ?>">
-                        <i class="fa fa-users"></i>
-                        <span>Пользователи</span>
-                    </a>
-                </li>
-                <li id="place-profiles">
-                    <a href="<?= Url::to(['/users/profiles/index']) ?>">
-                        <i class="fa fa-user-o"></i>
-                        <span>Профили</span>
-                    </a>
-                </li>
-            <?php endif ?>
-            <?php if (Yii::$app->user->can('organisations-view')): ?>
-                <li id="place-organisations">
-                    <a href="<?= Url::to(['/organisations/default/index']) ?>">
-                        <i class="fa fa-building-o"></i>
-                        <span>Организации</span>
-                    </a>
-                </li>
-            <?php endif ?>
-            <?php if (Yii::$app->user->can('users-log')): ?>
-                <li id="place-users-log">
-                    <a href="<?= Url::to(['/users/log/index']) ?>">
-                        <i class="fa fa-retweet"></i>
-                        <span>Журнал действий</span>
-                    </a>
-                </li>
-            <?php endif ?>
-            <?php if (Yii::$app->user->can('rbac') || Yii::$app->user->can('task-manager')): ?>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-gear"></i>
-                        <span>Инструменты</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li id="place-rbac">
-                            <a href="<?= Url::to(['/rbac/default/index']) ?>">
-                                <i class="fa fa-circle-o"></i>
-                                <span>Права доступа</span>
-                            </a>
-                        </li>
-                        <li id="place-rules">
-                            <a href="<?= Url::to(['/rbac/rules/index']) ?>">
-                                <i class="fa fa-circle-o"></i>
-                                <span>Правила доступа</span>
-                            </a>
-                        </li>
-                        <li id="place-roles">
-                            <a href="<?= Url::to(['/rbac/roles/index']) ?>">
-                                <i class="fa fa-circle-o"></i>
-                                <span>Роли пользователей</span>
-                            </a>
-                        </li>
-                        <li id="place-gii">
-                            <a href="<?= Url::to(['/gii']) ?>" target="_blank">
-                                <i class="fa fa-circle-o"></i>
-                                <span>Gii</span>
-                            </a>
-                        </li>
-                        <li id="place-phpinfo">
-                            <a href="<?= Url::to(['/main/main/phpinfo']) ?>" >
-                                <i class="fa fa-circle-o"></i>
-                                <span>phpInfo()</span>
-                            </a>
-                        </li>
-                        <?php if (Yii::$app->user->can('task-manager')): ?>
-                        <li id="place-task-manager">
-                            <a href="<?= Url::to(['/main/task-manager/index']) ?>" >
-                                <i class="fa fa-circle-o"></i>
-                                <span>Менеджер задач</span>
-                            </a>
-                        </li>
-                        <li id="place-tasks-logs">
-                            <a href="<?= Url::to(['/main/tasks-logs/index']) ?>" >
-                                <i class="fa fa-list"></i>
-                                <span>Логи задач</span>
-                            </a>
-                        </li>
-                        <?php endif; ?>
-                        <li id="place-general-settings">
-                            <a href="<?= Url::to(['/main/settings/index']) ?>" >
-                                <i class="fa fa-cogs"></i>
-                                <span>Общие настройки</span>
-                            </a>
-                        </li>
-                        <li id="place-sitemap">
-                            <a href="<?= Url::to(['/sitemap/default/dashboard']) ?>" >
-                                <i class="fa fa-circle-o"></i>
-                                <span>Sitemap</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            <?php endif ?>
-            <?php if (Yii::$app->user->can('libraries')): ?>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-database"></i>
-                        <span>Библиотеки</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li id="place-countries">
-                            <a href="<?= Url::to(['/main/countries/index']) ?>">
-                                <i class="fa fa-map-marker"></i>
-                                <span>Страны</span>
-                            </a>
-                        </li>
-                        <li id="place-districts">
-                            <a href="<?= Url::to(['/main/districts/index']) ?>">
-                                <i class="fa fa-map-marker"></i>
-                                <span>Районы</span>
-                            </a>
-                        </li>
-                        <li id="place-cities">
-                            <a href="<?= Url::to(['/main/cities/index']) ?>">
-                                <i class="fa fa-map-marker"></i>
-                                <span>Населенные пункты</span>
-                            </a>
-                        </li>
-                        <?php if (Yii::$app->user->can('categories-view')): ?>
-                            <li id="place-categories">
-                                <a href="<?= Url::to(['/tender/categories/index']) ?>">
-                                    <i class="fa fa-sitemap"></i>
-                                    <span>Категории</span>
-                                </a>
-                            </li>
-                        <?php endif ?>
-                    </ul>
-                </li>
-            <?php endif ?>
-            <?php if (Yii::$app->user->can('tenders-forms') OR Yii::$app->user->can('tenders-list')): ?>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-shopping-cart"></i>
-                        <span>Закупки</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <?php if (Yii::$app->user->can('tenders-forms')): ?>
-                            <li id="place-tenders-forms">
-                                <a href="<?= Url::to(['/tender/tenders-forms/index']) ?>">
-                                    <i class="fa fa-cog"></i>
-                                    <span>Формы закупок</span>
-                                </a>
-                            </li>
-                            <li id="place-tenders-fields">
-                                <a href="<?= Url::to(['/tender/tenders-fields/index']) ?>">
-                                    <i class="fa fa-cog"></i>
-                                    <span>Поля форм</span>
-                                </a>
-                            </li>
-                        <?php endif; ?>
-                        <?php if (Yii::$app->user->can('tenders-list')): ?>
-                            <li id="place-tenders-list">
-                                <a href="<?= Url::to(['/tender/tenders/index']) ?>">
-                                    <i class="fa fa-list"></i>
-                                    <span>Список закупок</span>
-                                </a>
-                            </li>
-                        <?php endif; ?>
-                        <li id="place-rejected-tenders">
-                            <a href="<?= Url::to(['/tender/rejected-tenders/index']) ?>">
-                                <i class="fa fa-times-circle"></i>
-                                <span>Отклонённые</span>
-                            </a>
-                        </li>
-                        <li id="place-tender-comments">
-                            <a href="<?= Url::to(['/tender/tender-comments/index']) ?>">
-                                <i class="fa fa-comment"></i>
-                                <span>Комментарии</span>
-                            </a>
-                        </li>
-                        <li id="place-favorites-tenders">
-                            <a href="<?= Url::to(['/tender/favorites-tenders/index']) ?>">
-                                <i class="fa fa-star"></i>
-                                <span>Избранное</span>
-                            </a>
-                        </li>
-                        <?php if (Yii::$app->user->can('tender-subscriptions')): ?>
-                            <li id="place-tender-subscriptions">
-                                <a href="<?= Url::to(['/tender/subscriptions/index']) ?>">
-                                    <i class="fa fa-bell"></i>
-                                    <span>Подписки на закупки</span>
-                                </a>
-                            </li>
-                        <?php endif; ?>
-                    </ul>
-                </li>
-            <?php endif ?>
-            <?php if (Yii::$app->user->can('offers')): ?>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-bullhorn"></i>
-                        <span>Предложения</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <?php if (Yii::$app->user->can('offers')): ?>
-                            <li id="place-offers">
-                                <a href="<?= Url::to(['/offers/default/index']) ?>">
-                                    <i class="fa fa-list"></i>
-                                    <span>Список предложений</span>
-                                </a>
-                            </li>
-                        <?php endif; ?>
-                    </ul>
-                </li>
-            <?php endif ?>
-            <?php if (Yii::$app->user->can('moderator')): ?>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-shield"></i>
-                        <span>Модерирование</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <?php if (Yii::$app->user->can('moderator')): ?>
-                            <li id="place-feedback">
-                                <a href="<?= Url::to(['/feedback/default/index']) ?>">
-                                    <i class="fa fa-commenting"></i>
-                                    <span>Feedback</span>
-                                </a>
-                            </li>
-                        <?php endif; ?>
-                    </ul>
-                </li>
-            <?php endif ?>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-newspaper-o"></i>
-                    <span>Блог</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li id="place-blog-posts">
-                        <a href="<?= Url::to(['/blog/posts/index']) ?>">
-                            <i class="fa fa-file-text-o"></i>
-                            <span>Статьи</span>
-                        </a>
-                    </li>
-                    <li id="place-blog-categories">
-                        <a href="<?= Url::to(['/blog/categories/index']) ?>">
-                            <i class="fa fa-sitemap"></i>
-                            <span>Категории</span>
-                        </a>
-                    </li>
-                    <li id="place-blog-tags">
-                        <a href="<?= Url::to(['/blog/tags/index']) ?>">
-                            <i class="fa fa-tags"></i>
-                            <span>Теги</span>
-                        </a>
-                    </li>
-                    <li id="place-general-settings-blog">
-                        <a href="<?= Url::to(['/main/settings/module/blog']) ?>">
-                            <i class="fa fa-cogs"></i>
-                            <span>Настройки блога</span>
-                        </a>
-                    </li>
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="<?= Url::to(['/']) ?>" class="brand-link">
+        <span class="brand-text font-weight-light"><?= Yii::$app->name ?></span>
+    </a>
 
-                </ul>
-            </li>
-        </ul>
-    </section>
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <div class="sidebar">
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <?php if (Yii::$app->user->can('users-view')): ?>
+                    <li class="nav-item" id="place-users">
+                        <a href="<?= Url::to(['/users/default/index']) ?>" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>Пользователи</p>
+                        </a>
+                    </li>
+                <?php endif ?>
+                <?php if (Yii::$app->user->can('users-log')): ?>
+                    <li class="nav-item" id="place-users-log">
+                        <a href="<?= Url::to(['/users/log/index']) ?>" class="nav-link">
+                            <i class="nav-icon fas fa-retweet"></i>
+                            <p>Журнал действий</p>
+                        </a>
+                    </li>
+                <?php endif ?>
+                <?php if (Yii::$app->user->can('rbac') || Yii::$app->user->can('task-manager')): ?>
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-cog"></i>
+                            <p>Инструменты</p>
+                            <i class="right fas fa-angle-left"></i>
+                        </a>
+                        <ul class="nav nav-treeview ">
+                            <li id="place-rbac" class="nav-item">
+                                <a href="<?= Url::to(['/rbac/default/index']) ?>" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Права доступа</p>
+                                </a>
+                            </li>
+                            <li id="place-rules" class="nav-item">
+                                <a href="<?= Url::to(['/rbac/rules/index']) ?>"  class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Правила доступа</p>
+                                </a>
+                            </li>
+                            <li id="place-roles" class="nav-item">
+                                <a href="<?= Url::to(['/rbac/roles/index']) ?>"  class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Роли пользователей</p>
+                                </a>
+                            </li>
+                            <li id="place-gii" class="nav-item">
+                                <a href="<?= Url::to(['/gii']) ?>"  class="nav-link" target="_blank">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Gii</p>
+                                </a>
+                            </li>
+                            <li id="place-phpinfo" class="nav-item">
+                                <a href="<?= Url::to(['/main/main/phpinfo']) ?>"  class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>phpInfo()</p>
+                                </a>
+                            </li>
+                            <?php if (Yii::$app->user->can('task-manager')): ?>
+                                <li id="place-task-manager" class="nav-item">
+                                    <a href="<?= Url::to(['/main/task-manager/index']) ?>"   class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Менеджер задач</p>
+                                    </a>
+                                </li>
+                                <li id="place-tasks-logs" class="nav-item">
+                                    <a href="<?= Url::to(['/main/tasks-logs/index']) ?>"  class="nav-link">
+                                        <i class="nav-icon fa fa-list"></i>
+                                        <p>Логи задач</p>
+                                    </a>
+                                </li>
+                            <?php endif; ?>
+                            <li id="place-general-settings" class="nav-item">
+                                <a href="<?= Url::to(['/main/settings/index']) ?>"  class="nav-link">
+                                    <i class="nav-icon fa fa-cogs"></i>
+                                    <p>Общие настройки</p>
+                                </a>
+                            </li>
+                            <li id="place-sitemap" class="nav-item">
+                                <a href="<?= Url::to(['/sitemap/default/dashboard']) ?>"  class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Sitemap</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php endif ?>
+                <?php if (Yii::$app->user->can('libraries')): ?>
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-database"></i>
+                            <p>Библиотеки</p>
+                            <i class="right fas fa-angle-left"></i>
+                        </a>
+                        <ul class="nav nav-treeview ">
+                            <li id="place-countries" class="nav-item">
+                                <a href="<?= Url::to(['/main/countries/index']) ?>"  class="nav-link">
+                                    <i class="nav-icon fas fa-map-marker"></i>
+                                    <p>Страны</p>
+                                </a>
+                            </li>
+                            <li id="place-districts" class="nav-item">
+                                <a href="<?= Url::to(['/main/districts/index']) ?>"  class="nav-link">
+                                    <i class="nav-icon fa fa-map-marker"></i>
+                                    <p>Районы</p>
+                                </a>
+                            </li>
+                            <li id="place-cities" class="nav-item">
+                                <a href="<?= Url::to(['/main/cities/index']) ?>"  class="nav-link">
+                                    <i class="nav-icon fas fa-map-marker"></i>
+                                    <p>Населенные пункты</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php endif ?>
+                <?php if (Yii::$app->user->can('moderator')): ?>
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-check"></i>
+                            <p>Модерирование</p>
+                            <i class="right fas fa-angle-left"></i>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <?php if (Yii::$app->user->can('moderator')): ?>
+                                <li id="place-feedback" class="nav-item">
+                                    <a href="<?= Url::to(['/feedback/default/index']) ?>"  class="nav-link">
+                                        <i class="nav-icon fa fa-commenting"></i>
+                                        <p>Feedback</p>
+                                    </a>
+                                </li>
+                            <?php endif; ?>
+                        </ul>
+                    </li>
+                <?php endif ?>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-newspaper"></i>
+                        <p>Блог</p>
+                        <i class="right fas fa-angle-left"></i>
+                    </a>
+                    <ul class="nav nav-treeview ">
+                        <li id="place-blog-posts" class="nav-item">
+                            <a href="<?= Url::to(['/blog/posts/index']) ?>" class="nav-link">
+                                <i class="nav-icon far fa-file-alt"></i>
+                                <p>Статьи</p>
+                            </a>
+                        </li>
+                        <li id="place-blog-categories" class="nav-item">
+                            <a href="<?= Url::to(['/blog/categories/index']) ?>" class="nav-link">
+                                <i class="nav-icon fas fa-sitemap"></i>
+                                <p>Категории</p>
+                            </a>
+                        </li>
+                        <li id="place-blog-tags" class="nav-item">
+                            <a href="<?= Url::to(['/blog/tags/index']) ?>" class="nav-link">
+                                <i class="nav-icon fas fa-tags"></i>
+                                <p>Теги</p>
+                            </a>
+                        </li>
+                        <li id="place-general-settings-blog" class="nav-item">
+                            <a href="<?= Url::to(['/main/settings/module/blog']) ?>" class="nav-link">
+                                <i class="nav-icon fas fa-cogs"></i>
+                                <p>Настройки блога</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
     <!-- /.sidebar -->
 </aside>

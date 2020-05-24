@@ -11,13 +11,13 @@ $this->title                     = 'Устройства';
 $this->params['pageTitle']       = $this->title;
 
 $this->params['place']           = 'users';
-$this->params['pageIcon']        = 'desktop';
+$this->params['pageIcon']        = 'fas desktop';
 $this->params['breadcrumbs'][]   = $this->title;
 ?>
 
-<div class="box">
+<div class="card card-outline card-primary">
     <?php if ($dataProvider->totalCount > 0): ?>
-        <div class="box-header">
+        <div class="card-header">
             <?= Html::a('<i class="fa fa-times"></i> ' . Module::t('main', 'BTN_CLEAR_DEVICES'), ['devices-clear'], [
                 'class' => 'btn btn-danger',
                 'data'  => [
@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][]   = $this->title;
         </div>
     <?php endif ?>
 
-    <div class="box-body no-padding">
+    <div class="card-body no-padding">
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'columns' => [

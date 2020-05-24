@@ -16,12 +16,12 @@ $this->params['content-fixed'] = true;
 $this->params['pageIcon'] = 'list-ul';
 $this->params['place']    = 'sitemap';
 ?>
-<div class="box">
-    <div class="box-header">
+<div class="card card-outline card-primary">
+    <div class="card-header">
         Базовые страницы
     </div>
 
-    <div class="box-body ">
+    <div class="card-body ">
 
 
         <div class="row">
@@ -41,12 +41,12 @@ $this->params['place']    = 'sitemap';
 </div>
 
 
-<div class="box">
-    <div class="box-header">
+<div class="card card-outline card-primary">
+    <div class="card-header">
         Генерация Sitemap файлов
     </div>
 
-    <div class="box-body ">
+    <div class="card-body ">
         <div class="row">
             <div class="col-md-8 col-sm-7">
                 <p class="mt-10">

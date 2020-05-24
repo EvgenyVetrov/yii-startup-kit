@@ -17,15 +17,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
 $this->params['place'] = 'cities';
 ?>
-<div class="cities-index box">
+<div class="cities-index card card-primary card-outline">
 
                     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
     
-    <div class="box-header">
+    <div class="card-header">
         <?= Html::a('<i class="fa fa-plus"></i> Добавить', ['create'], ['class' => 'btn btn-primary']) ?>
         <span class="pull-right text-14">активных городов: <?= $countActiveCities ?></span>
     </div>
-    <div class="box-body no-padding">
+    <div class="card-body no-padding">
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'filterModel' => $searchModel,

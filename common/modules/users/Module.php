@@ -14,6 +14,8 @@ class Module extends \common\components\Module {
         $this->registerTranslations();
     }
 
+
+
     /**
      * Регистрируем перевод.
      */

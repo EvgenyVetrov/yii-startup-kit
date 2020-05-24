@@ -14,7 +14,7 @@ use common\components\ActiveForm;
  */
 
 $this->title                     = 'Команда';
-$this->params['pageIcon']        = 'user';
+$this->params['pageIcon']        = 'fas user';
 $this->params['place']           = 'my-organisations';
 $this->params['pageTitle']       = $this->title;
 $this->params['breadcrumbs'][]   = ['label' => 'мои организации', 'url' => ['/my-organisations']];

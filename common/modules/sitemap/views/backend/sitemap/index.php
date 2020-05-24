@@ -14,15 +14,15 @@ $this->params['breadcrumbs'][] = $this->title;
 $this->params['pageIcon'] = 'list-ul';
 $this->params['place']    = 'sitemap';
 ?>
-<div class="sitemap-index box">
+<div class="sitemap-index card card-primary card-outline">
 
-    <div class="box-header">
+    <div class="card-header">
         <?= Html::a('<i class="fa fa-plus"></i> &nbsp;Добавить', ['create'], ['class' => 'btn btn-primary']) ?>
     </div>
 
         <?php Pjax::begin(); ?>
                 <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-    <div class="box-body no-padding">
+    <div class="card-body no-padding">
             <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,

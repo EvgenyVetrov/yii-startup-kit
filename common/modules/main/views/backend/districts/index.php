@@ -14,14 +14,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
 $this->params['place'] = 'districts';
 ?>
-<div class="districts-index box">
+<div class="districts-index card card-primary card-outline">
 
                     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
     
-    <div class="box-header">
+    <div class="card-header">
         <?= Html::a('<i class="fa fa-plus"></i> Добавить', ['create'], ['class' => 'btn btn-primary']) ?>
     </div>
-    <div class="box-body no-padding">
+    <div class="card-body no-padding">
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'filterModel' => $searchModel,

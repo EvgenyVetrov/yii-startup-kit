@@ -13,11 +13,11 @@
 
 ?>
 
-<div class="box">
-    <div class="box-header">
+<div class="card card-outline card-primary">
+    <div class="card-header">
         Настройки модуля "<?= $general_settings_info['module_label'] ?>"
     </div>
-    <div class="box-body ">
+    <div class="card-body ">
         <?php if ($general_settings_info['list']):
             $i = 0;
             foreach ($general_settings_info['list'] as $setting): ?>

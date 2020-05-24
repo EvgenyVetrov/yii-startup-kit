@@ -104,7 +104,7 @@ class Users extends BaseUsers {
     {
         return array_merge(parent::attributeLabels(), [
             'email'              => Module::t('main', 'ATTR_EMAIL'),
-            'first_name'               => Module::t('main', 'ATTR_NAME'),
+            'first_name'         => Module::t('main', 'ATTR_NAME'),
             'password_new'       => Module::t('main', 'ATTR_PASSWORD_NEW'),
             'password_repeat'    => Module::t('main', 'ATTR_PASSWORD_REPEAT'),
         ]);
@@ -157,6 +157,8 @@ class Users extends BaseUsers {
 
         return parent::beforeSave($insert);
     }
+
+
 
     /**
      * @inheritdoc

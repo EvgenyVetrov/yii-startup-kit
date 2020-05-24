@@ -111,7 +111,6 @@ class BaseUsers extends yii\db\ActiveRecord implements IdentityInterface
             ],
 
             [['avatar'], 'string', 'max' => 50, 'on' => Users::SCENARIO_AVATAR],
-            [['current_organisation'], 'integer'],
             [['image_avatar'], 'image', 'on' => Users::SCENARIO_AVATAR,
                 'skipOnEmpty' => false,
                 'extensions'  => 'png, jpg',
@@ -119,7 +118,7 @@ class BaseUsers extends yii\db\ActiveRecord implements IdentityInterface
                 'minWidth'    => 500,
                 'minHeight'   => 500,
             ],
-            [['image'], 'image', 'extensions' => 'png, jpg'], // не используется наверно уже это jn оСкщз вроде осталось
+            //[['image'], 'image', 'extensions' => 'png, jpg'], // не используется наверно уже это jn оСкщз вроде осталось
             //[['role'], 'string', 'max' => 25],
         ];
     }
@@ -191,15 +190,6 @@ class BaseUsers extends yii\db\ActiveRecord implements IdentityInterface
         return $this->auth_key;
     }
 
-
-    /**
-     * Связь с профилем в текущей организации
-     * @return $this
-     */
-    public function getCurrentOrgProfile()
-    {
-        return $this->hasOne(BaseProfiles::class, ['org_id' => 'id'])->andWhere(['user_id' => $this->id]);
-    }
 
 
     /**

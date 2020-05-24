@@ -21,34 +21,46 @@ $this->registerJs('
 
 <?php $form = ActiveForm::begin(); ?>
 
-<div class="box">
-    <div class="box-body">
-        <div class="col-md-5">
+<div class="card card-outline card-primary">
+    <div class="card-body">
+
             <div class="row">
+                <div class="col-md-6">
+                    <?= $form->field($model, 'first_name') ?>
+                </div>
+                <div class="col-md-6">
+                    <?= $form->field($model, 'email') ?>
+                </div>
+                <div class="col-md-6">
+                    <?= $form->field($model, 'password_new')->passwordInput() ?>
+                </div>
+                <div class="col-md-6">
+                    <?= $form->field($model, 'password_repeat')->passwordInput() ?>
+                </div>
 
-                <?= $form->field($model, 'first_name') ?>
 
-                <?= $form->field($model, 'email') ?>
 
-                <?= $form->field($model, 'password_new')->passwordInput() ?>
 
-                <?= $form->field($model, 'password_repeat')->passwordInput() ?>
+
 
                 <?php if ($model->scenario == Users::SCENARIO_UPDATE): ?>
+                <div class="col-md-6">
                     <?= $form->field($model, 'ban_exists')->checkbox() ?>
 
                     <div id="show-ban-description" style="display: <?= $model->ban_exists == 1 ? 'block' : 'none' ?>">
                         <?= $form->field($model, 'ban_description')->textarea() ?>
                     </div>
-                <?php endif; ?>
-
-                <div class="form-group">
-                    <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'BTN_CREATE') : Yii::t('app', 'BTN_UPDATE'),
-                        ['class' => 'btn btn-primary']
-                    ) ?>
                 </div>
+                <?php endif; ?>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'BTN_CREATE') : Yii::t('app', 'BTN_UPDATE'),
+                            ['class' => 'btn btn-primary']
+                        ) ?>
+                    </div>
+                </div>
+
             </div>
-        </div>
     </div>
 </div>
 

@@ -15,8 +15,8 @@ $this->params['content-fixed'] = true;
 $this->params['pageIcon'] = 'tags';
 $this->params['place']    = 'blog-tags';
 ?>
-<div class="box">
-    <div class="box-header">
+<div class="card card-outline card-primary">
+    <div class="card-header">
         <?= Html::a('<i class="fa fa-edit"></i> Изменить', ['update', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
         <?= Html::a('<i class="fa fa-times"></i> Удалить', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
@@ -29,7 +29,7 @@ $this->params['place']    = 'blog-tags';
         ]) ?>
     </div>
 
-    <div class="box-body no-padding">
+    <div class="card-body no-padding">
         <?= DetailView::widget([
             'model' => $model,
             'attributes' => [

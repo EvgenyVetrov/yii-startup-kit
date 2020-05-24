@@ -13,11 +13,11 @@ $this->params['place'] = 'rbac';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="box">
+<div class="card card-outline card-primary">
 
     <?= Html::beginForm(['delete-multiple']); ?>
 
-    <div class="box-header">
+    <div class="card-header">
         <?= Html::a('<i class="fa fa-plus"></i> Добавить', ['create'], [
             'class' => 'btn btn-primary'
         ]) ?>
@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </div>
 
-    <div class="box-body no-padding">
+    <div class="card-body no-padding">
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'columns' => [

@@ -27,8 +27,8 @@ $this->params['breadcrumbs'][]   = $this->title;
     </div>
 <?php endforeach; ?>
 
-<div class="box">
-    <div class="box-body no-padding">
+<div class="card card-outline card-primary">
+    <div class="card-body no-padding">
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'columns' => [

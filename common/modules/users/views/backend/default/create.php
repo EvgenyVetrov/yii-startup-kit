@@ -8,7 +8,7 @@ use modules\users\models\backend\Users;
 $this->title                     = 'Пользователи';
 $this->params['pageTitle']       = 'Добавить пользователя';
 
-$this->params['pageIcon']        = 'users';
+$this->params['pageIcon']        = 'fas users';
 $this->params['place']           = 'users';
 $this->params['breadcrumbs'][]   = ['label' => $this->title, 'url' => ['index']];
 $this->params['breadcrumbs'][]   = 'Добавить';

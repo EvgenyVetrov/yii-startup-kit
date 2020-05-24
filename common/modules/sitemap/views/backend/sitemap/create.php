@@ -9,7 +9,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Базовые записи sitema
 $this->params['breadcrumbs'][] = 'Добавить базовую запись в sitemap';
 
 $this->params['content-fixed'] = true;
-$this->params['pageIcon'] = 'list-ul';
+$this->params['pageIcon'] = 'fas fa list-ul';
 $this->params['place']    = 'sitemap';
 ?>
 <div class="sitemap-create">

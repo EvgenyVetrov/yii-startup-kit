@@ -57,10 +57,6 @@ class DefaultController extends Controller{
         return $this->render('index', [
             'active_emails'  => Users::countActiveEmails(),
             'new_feedbacks'  => Feedback::countNewFeedbacks(),
-            'avtive_tenders' => Tenders::countActiveTenders(),
-            'public_tenders' => Tenders::countActivePublicTenders(),
-            'promo_tenders'  => Tenders::countActivePromoTenders(),
-            'tenders_notifications' => TenderNotifications::getMonitoringInfo()
         ]);
     }
 }
