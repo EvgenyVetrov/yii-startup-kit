@@ -24,20 +24,21 @@ $this->title                   = '<?= $generator->titleIndex ?>';
 $this->params['pageTitle']     = $this->title;
 $this->params['breadcrumbs'][] = $this->title;
 
+$this->params['content-fixed'] = false;
 $this->params['pageIcon'] = '<?= $generator->generalIcon ?>';
 $this->params['place']    = '<?= $generator->menuPlace ?>';
 ?>
-<div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-index box">
+<div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-index card card-primary card-outline">
 
     <?= $generator->enablePjax ? "    <?php Pjax::begin(); ?>\n" : '' ?>
     <?php if(!empty($generator->searchModelClass)): ?>
         <?= "    <?php " . ($generator->indexWidgetType === 'grid' ? "// " : "") ?>echo $this->render('_search', ['model' => $searchModel]); ?>
     <?php endif; ?>
 
-    <div class="box-header">
+    <div class="card-header">
         <?= "<?= " ?>Html::a('<i class="fa fa-plus"></i> Добавить', ['create'], ['class' => 'btn btn-primary']) ?>
     </div>
-    <div class="box-body no-padding">
+    <div class="card-body no-padding">
     <?php if ($generator->indexWidgetType === 'grid'): ?>
         <?= "<?= " ?>GridView::widget([
         'dataProvider' => $dataProvider,

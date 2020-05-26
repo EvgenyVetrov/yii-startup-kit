@@ -47,25 +47,9 @@ $this->params['place'] = 'districts';
                 // 'sort',
 
                 [
-                    'class'          => 'common\widgets\ActionColumn',
-                    'firstButton'    => 'view',
-                    'hiddenButtons'  => ['update', 'hr', 'delete'],
-                    'buttonOptions'  => [
-                        'delete' => function ($model){
-                            $title       = Yii::t('app', 'CONFIRM_TITLE');
-                            $description = 'Вы уверены что хотите удалить данную запись?';
-
-                            $options = [
-                                'toggle'        => 'confirm',
-                                'method'        => 'post',
-                                'title'         => $title,
-                                'description'   => $description,
-                            ];
-
-                            return ['data' => $options];
-                        }
-                    ]
-                ]
+                    'class' => \yii\grid\ActionColumn::class,
+                    'template' => '{view} {update} {delete}',
+                ],
             ],
         ]); ?>
         </div>

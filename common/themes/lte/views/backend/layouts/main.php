@@ -14,11 +14,10 @@ MainAsset::register($this);
 if (isset($this->params['place'])){
     $this->registerJs('
         var place = $("#place-' . $this->params['place'] . '");
-        if (place.parent().parent().prop("tagName") == "LI"){
-            place.parent().parent().addClass("open");
-            place.parent().show();
+        if (place.closest(".has-treeview").length) {
+            place.closest(".has-treeview").addClass("menu-open");
         }
-        place.addClass("active");
+        place.children(".nav-link").addClass("active");
     ');
 }
 
@@ -60,7 +59,10 @@ $push_menu = isset($_COOKIE['push_menu']) && $_COOKIE['push_menu'] == 'close' ? 
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            <?= Yii::$app->view->render('_content_header'); ?>
+            <?= $this->render('_content_header', [
+                    'pageTitle' => Html::encode($this->params['pageTitle']),
+                    'pageIcon'  => isset($this->params['pageIcon']) ? $this->params['pageIcon'] : false
+            ]); ?>
 
             <!-- Main content -->
             <section class="content ml-auto mr-auto <?= $contentFixed ? 'content-fixed' : '' ?>">
@@ -82,5 +84,15 @@ $push_menu = isset($_COOKIE['push_menu']) && $_COOKIE['push_menu'] == 'close' ? 
     <?php $this->endBody() ?>
     </body>
     </html>
-<?php $this->endPage();
+<?php
+$js = <<<JS
+    $('.select2').select2({
+        minimumResultsForSearch: 10
+    });
+JS;
+
+$this->registerJs($js);
+
+
+$this->endPage();
 

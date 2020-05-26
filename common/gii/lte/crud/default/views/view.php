@@ -23,13 +23,14 @@ $this->params['breadcrumbs'][] = $this->title;
 $this->params['pageTitle']     = $this->title;
 
 $this->params['content-fixed'] = true;
-$this->params['pageIcon'] = '<?= $generator->generalIcon ?>';
-$this->params['place']    = '<?= $generator->menuPlace ?>';
+$this->params['pageIcon']      = '<?= $generator->generalIcon ?>';
+$this->params['place']         = '<?= $generator->menuPlace ?>';
+$this->params['content-fixed'] = true;
 ?>
 <div class="box">
     <div class="box-header">
-        <?= "<?= " ?>Html::a('<i class="fa fa-edit"></i> Изменить', ['update', <?= $urlParams ?>], ['class' => 'btn btn-success']) ?>
-        <?= "<?= " ?>Html::a('<i class="fa fa-times"></i> Удалить', ['delete', <?= $urlParams ?>], [
+        <?= "<?= " ?>Html::a('<i class="fas fa-edit"></i> Изменить', ['update', <?= $urlParams ?>], ['class' => 'btn btn-success']) ?>
+        <?= "<?= " ?>Html::a('<i class="fas fa-times"></i> Удалить', ['delete', <?= $urlParams ?>], [
             'class' => 'btn btn-danger',
                 'data' => [
                 'toggle'        => 'confirm',

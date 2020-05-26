@@ -54,6 +54,7 @@ return [
                 'modules\feedback\migrations',
                 'modules\blog\migrations',
                 'modules\sitemap\migrations',
+                'modules\site\migrations',
             ],
             'migrationPath' => null
         ],

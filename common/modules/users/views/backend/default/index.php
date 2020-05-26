@@ -43,10 +43,6 @@ $this->params['breadcrumbs'][]   = $this->title;
                 ],
                 [
                     'class' => \yii\grid\ActionColumn::class,
-
-                    /**
-                     * Определяем набор кнопок. По умолчанию {view} {update} {delete}
-                     */
                     'template' => '{view} {update} {delete}',
                 ],
                 //[

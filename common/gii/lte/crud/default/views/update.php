@@ -23,6 +23,7 @@ $this->params['breadcrumbs'][] = $model-><?= $generator->getNameAttribute() ?>;
 $this->params['content-fixed'] = true;
 $this->params['pageIcon'] = '<?= $generator->generalIcon ?>';
 $this->params['place']    = '<?= $generator->menuPlace ?>';
+$this->params['content-fixed'] = true;
 ?>
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-update">
 

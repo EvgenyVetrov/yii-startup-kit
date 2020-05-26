@@ -37,9 +37,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     'value' => 'name'
                 ],
                 [
-                    'class'          => 'common\widgets\ActionColumn',
-                    'firstButton'    => 'delete',
-                    'hiddenButtons'  => [],
+                    'class' => \yii\grid\ActionColumn::class,
+                    'template' => '{view} {update} {delete}',
                 ],
             ]
         ]) ?>

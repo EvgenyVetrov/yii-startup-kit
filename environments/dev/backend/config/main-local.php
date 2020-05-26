@@ -19,6 +19,9 @@ if (!YII_ENV_TEST) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
+        'generators' => [
+            'lte-crud' => 'common\gii\lte\crud\Generator'
+        ]
     ];
 }
 

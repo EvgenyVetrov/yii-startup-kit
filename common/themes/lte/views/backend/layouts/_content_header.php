@@ -10,6 +10,7 @@ use yii\widgets\Breadcrumbs;
  * Time: 13:41
  */
 
+
 ?>
 
 <section class="content-header">
@@ -17,10 +18,10 @@ use yii\widgets\Breadcrumbs;
         <div class="row mb-2">
             <div class="col-sm-6">
                 <h1 class="text-secondary">
-                    <?php if (isset($this->params['pageIcon'])): ?>
-                        <i class="<?= $this->params['pageIcon'] ?>"></i> &nbsp;
+                    <?php if ($pageIcon): ?>
+                        <i class="<?= $pageIcon ?>"></i> &nbsp;
                     <?php endif; ?>
-                    <?= Html::encode($this->params['pageTitle']); ?>
+                    <?= $pageTitle; ?>
                 </h1>
             </div>
             <div class="col-sm-6">
