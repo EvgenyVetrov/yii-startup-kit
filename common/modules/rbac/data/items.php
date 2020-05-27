@@ -13,18 +13,11 @@ return [
             'payment',
             'users-auth',
             'support',
-            'organisations-view',
-            'organisations-crud',
             'libraries',
-            'categories-crud',
-            'categories-view',
-            'tenders-forms',
-            'tenders-list',
-            'offers',
             'moderator',
             'task-manager',
             'blog-crud',
-            'tender-subscriptions',
+            'pages',
         ],
     ],
     'rbac' => [
@@ -59,37 +52,9 @@ return [
         'type' => 2,
         'description' => 'Поддержка: CRUD',
     ],
-    'organisations-view' => [
-        'type' => 2,
-        'description' => 'Организации: просмотр',
-    ],
-    'organisations-crud' => [
-        'type' => 2,
-        'description' => 'Организации: CRUD',
-    ],
     'libraries' => [
         'type' => 2,
         'description' => 'Доступ к библиотекам',
-    ],
-    'categories-crud' => [
-        'type' => 2,
-        'description' => 'Категории: CRUD',
-    ],
-    'categories-view' => [
-        'type' => 2,
-        'description' => 'Категории: просмотр',
-    ],
-    'tenders-forms' => [
-        'type' => 2,
-        'description' => 'Составление форм закупок',
-    ],
-    'tenders-list' => [
-        'type' => 2,
-        'description' => 'Доступ к закупкам',
-    ],
-    'offers' => [
-        'type' => 2,
-        'description' => 'Предложения: CRUD',
     ],
     'moderator' => [
         'type' => 2,
@@ -103,8 +68,8 @@ return [
         'type' => 2,
         'description' => 'Блог: crud',
     ],
-    'tender-subscriptions' => [
+    'pages' => [
         'type' => 2,
-        'description' => 'Подписки на закупки: crud',
+        'description' => 'CRUD страниц сайта и блоков',
     ],
 ];

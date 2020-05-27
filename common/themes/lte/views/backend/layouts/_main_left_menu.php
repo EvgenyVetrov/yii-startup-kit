@@ -40,6 +40,32 @@ use yii\helpers\Url;
                         </a>
                     </li>
                 <?php endif ?>
+
+                <?php if (Yii::$app->user->can('pages')): ?>
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-sitemap"></i>
+                            <p>Страницы сайта</p>
+                            <i class="right fas fa-angle-left"></i>
+                        </a>
+                        <ul class="nav nav-treeview ">
+                            <li id="place-site-pages" class="nav-item">
+                                <a href="<?= Url::to(['/site/pages/index']) ?>"  class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Страницы</p>
+                                </a>
+                            </li>
+                            <li id="place-site-pages-blocks" class="nav-item">
+                                <a href="<?= Url::to(['/site/pages-blocks/index']) ?>"  class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Отдельные блоки</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php endif ?>
+
+
                 <?php if (Yii::$app->user->can('rbac') || Yii::$app->user->can('task-manager')): ?>
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">

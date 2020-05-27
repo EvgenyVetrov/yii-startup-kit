@@ -27,25 +27,25 @@ use yii\widgets\ActiveForm;
 
 <?= "<?php " ?>$form = ActiveForm::begin(); ?>
 
-<div class="box">
-    <div class="box-body">
-        <div class="col-md-5">
+<div class="card card-primary card-outline">
+    <div class="card-body">
+
             <div class="row">
 
 <?php foreach ($generator->getColumnNames() as $attribute) {
     if (in_array($attribute, $safeAttributes)) {
-        echo "                <?= " . $generator->generateActiveField($attribute) . " ?>\n\n";
+        echo "                <div class=\"col-md-6\">                <?= " . $generator->generateActiveField($attribute) . " ?>\n                </div>\n";
     }
 } ?>
-
-                <div class="form-group">
-                    <?= '<?= Html::submitButton($model->isNewRecord ? Yii::t(\'app\', \'BTN_CREATE\') : Yii::t(\'app\', \'BTN_UPDATE\'),
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <?= '<?= Html::submitButton($model->isNewRecord ? Yii::t(\'app\', \'BTN_CREATE\') : Yii::t(\'app\', \'BTN_UPDATE\'),
                         [\'class\' => \'btn btn-primary\']
                     ) ?>' ?>
 
+                    </div>
                 </div>
             </div>
-        </div>
     </div>
 </div>
 

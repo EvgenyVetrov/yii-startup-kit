@@ -16,6 +16,7 @@ return [
     ],
     'modules' => [
         'main'    => ['class' => 'modules\main\Module'],
+        'site'    => ['class' => 'modules\site\Module'],
         'rbac'    => ['class' => 'modules\rbac\Module'],
         'users'   => ['class' => 'modules\users\Module'],
         'feedback'  => ['class' => 'modules\feedback\Module'],

@@ -25,6 +25,7 @@ class MainAsset extends AssetBundle{
         'plugins/fontawesome-free/webfonts/fa-solid-900.ttf',
         'plugins/fontawesome-free/webfonts/fa-solid-900.woff',
         //'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css',
+        //'bootstrap/css/bootstrap-theme.css',
         'dist/css/adminlte.css',
         'dist/css/custom.css',
     ];

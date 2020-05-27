@@ -27,8 +27,8 @@ $this->params['pageIcon']      = '<?= $generator->generalIcon ?>';
 $this->params['place']         = '<?= $generator->menuPlace ?>';
 $this->params['content-fixed'] = true;
 ?>
-<div class="box">
-    <div class="box-header">
+<div class="card card-primary card-outline">
+    <div class="card-header">
         <?= "<?= " ?>Html::a('<i class="fas fa-edit"></i> Изменить', ['update', <?= $urlParams ?>], ['class' => 'btn btn-success']) ?>
         <?= "<?= " ?>Html::a('<i class="fas fa-times"></i> Удалить', ['delete', <?= $urlParams ?>], [
             'class' => 'btn btn-danger',
@@ -41,7 +41,7 @@ $this->params['content-fixed'] = true;
         ]) ?>
     </div>
 
-    <div class="box-body no-padding">
+    <div class="card-body no-padding">
         <?= "<?= " ?>DetailView::widget([
             'model' => $model,
             'attributes' => [
