@@ -23,7 +23,7 @@ class Module extends \common\components\Module {
         parent::init();
         $this->registerTranslations();
 
-        Yii::$app->view->theme = new Theme();
+        //Yii::$app->view->theme = new Theme();
 
         /* для морды сайта используется другая тема */
         Yii::$app->view->theme->pathMap = [

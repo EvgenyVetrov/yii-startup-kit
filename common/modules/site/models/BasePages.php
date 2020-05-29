@@ -14,6 +14,9 @@ use Yii;
  * @property string|null $js
  * @property string|null $custom_head
  * @property string|null $robots
+ * @property string|null $title
+ * @property string|null $keywords
+ * @property string|null $description
  * @property string|null $blocks_ids
  * @property string|null $sitemap_lastmod
  * @property int|null $sitemap_changefreq
@@ -26,6 +29,12 @@ use Yii;
  */
 class BasePages extends \yii\db\ActiveRecord
 {
+    const STATUS_DRAFT  = 0;
+    const STATUS_ACTIVE = 1;
+
+    const TYPE_HARDCODE = 0;
+    const TYPE_VIRTUAL  = 1;
+
     /**
      * {@inheritdoc}
      */
@@ -43,6 +52,7 @@ class BasePages extends \yii\db\ActiveRecord
             [['content', 'js', 'custom_head', 'blocks_ids'], 'string'],
             [['sitemap_changefreq', 'sitemap_priority', 'type', 'status', 'created_at', 'updated_at'], 'integer'],
             [['name', 'robots'], 'string', 'max' => 50],
+            [['title', 'keywords', 'description'], 'string', 'max' => 50],
             [['location'], 'string', 'max' => 500],
             [['sitemap_lastmod'], 'string', 'max' => 30],
             [['own_description'], 'string', 'max' => 800],
@@ -56,9 +66,9 @@ class BasePages extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'location' => 'Location',
-            'content' => 'Content',
+            'name' => 'Название',
+            'location' => 'URL',
+            'content' => 'HTML содержимое',
             'js' => 'Js',
             'custom_head' => 'Custom Head',
             'robots' => 'Robots',
@@ -66,11 +76,37 @@ class BasePages extends \yii\db\ActiveRecord
             'sitemap_lastmod' => 'Sitemap Lastmod',
             'sitemap_changefreq' => 'Sitemap Changefreq',
             'sitemap_priority' => 'Sitemap Priority',
-            'type' => 'Type',
-            'own_description' => 'Own Description',
-            'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'type' => 'Тип страницы',
+            'own_description' => 'Внутренне примечание',
+            'status' => 'Статус',
+            'created_at' => 'Создано',
+            'updated_at' => 'Обновлено',
         ];
     }
+
+
+
+    /**
+     * Возвращает список статусов
+     * @return array
+     */
+    public static function statusLabels() {
+        return [
+            self::STATUS_DRAFT  => 'черновик',
+            self::STATUS_ACTIVE => 'aктивно'
+        ];
+    }
+
+
+    /**
+     * Возвращает список типов
+     * @return array
+     */
+    public static function typeLabels() {
+        return [
+            self::TYPE_HARDCODE => 'Хардкодная',
+            self::TYPE_VIRTUAL  => 'Виртуальная'
+        ];
+    }
+
 }

@@ -49,8 +49,10 @@ class Theme extends yii\base\Theme {
         Yii::$container->set('yii\widgets\ActiveForm', [
             'fieldClass' => 'common\widgets\ActiveField'
         ]);
-
+        //d(1111);
+        //exit();
         Yii::$container->set('yii\grid\ActionColumn', [
+
             'buttons' => [
                 'up' => function ($url, $model, $key) {
                     return Html::a('<i class="fa fa-arrow-up"></i>', $url, [

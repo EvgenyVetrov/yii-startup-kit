@@ -32,7 +32,13 @@ function ajaxError(xhr, initiator) {
 
 /* обработчик который запускает предварительный свиталерт подтверждения или обработки произвольного действия */
 function initSwalConfirmation() {
-    $(document).on('click', '[data-action=confirmation][data-action-url]', function (event) {
+    /*$('[data-action=confirmation][data-action-url]').on('click', function () {
+        alert(321321321);
+        return false;
+    });*/
+
+    //
+    $('body').on('click', '[data-action=confirmation][data-action-url]', function (event) {
 
         event.preventDefault();
         var element        = $(event.target).closest('[data-action]');
@@ -83,6 +89,8 @@ function initSwalConfirmation() {
                 });
             }
         });
+
+        return false;
     });
 }
 
@@ -93,8 +101,14 @@ function afterConfirmationDelete(element) {
 }
 
 
+initSwalConfirmation();
+
 document.addEventListener('DOMContentLoaded', function(){ // Аналог $(document).ready(function(){
                                                           // Если должен быть найден один элемент
-    initSwalConfirmation();
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip({
+            html: true
+        });
+    });
 
 });

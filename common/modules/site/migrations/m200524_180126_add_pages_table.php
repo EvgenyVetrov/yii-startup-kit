@@ -21,12 +21,15 @@ class m200524_180126_add_pages_table extends Migration
             'js'             => $this->text(),
             'custom_head'    => $this->text(),
             'robots'         => $this->string(50),
+            'keywords'       => $this->string(500),
+            'description'    => $this->string(500),
+            'title'          => $this->string(500),
 
             'blocks_ids'         => $this->text(), // список связных блоков через запятую id-шники
 
-            'sitemap_lastmod'        => $this->string(30), // для sitemap в форате sitemap
-            'sitemap_changefreq'     => $this->tinyInteger(), // список стабилен, поэтому захардкожен
-            'sitemap_priority' => $this->tinyInteger(), // вообще значения 0.5 и т.п. - десятичные. Ну 0 вначеле подставляется при генерации.
+            'sitemap_lastmod'    => $this->string(30), // для sitemap в форате sitemap
+            'sitemap_changefreq' => $this->tinyInteger(), // список стабилен, поэтому захардкожен
+            'sitemap_priority'   => $this->tinyInteger(), // вообще значения 0.5 и т.п. - десятичные. Ну 0 вначеле подставляется при генерации.
 
             'type' => $this->tinyInteger(1)->defaultValue(0), // тип страницы:  хардкодная или виртуальная.
 

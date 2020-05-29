@@ -30,6 +30,8 @@ class MainAsset extends AssetBundle{
         'dist/css/custom.css',
     ];
     public $js = [
+
+        'dist/js/common.js',
         'plugins/select2/js/select2.full.js',
         'plugins/select2/js/i18n/ru.js',
 
@@ -44,7 +46,6 @@ class MainAsset extends AssetBundle{
         'plugins/bootstrap/js/bootstrap.bundle.js',
         'dist/js/adminlte.js',
         'dist/js/demo.js',
-        'dist/js/common.js',
         //'plugins/ace-editor/ace.js',
         //'dist/js/app.js'
         //'dist/js/app.min.js?v=2.0.4'

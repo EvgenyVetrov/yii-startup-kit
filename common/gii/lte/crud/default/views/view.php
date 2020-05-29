@@ -11,6 +11,7 @@ $urlParams = $generator->generateUrlParams();
 echo "<?php\n";
 ?>
 
+use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -25,18 +26,20 @@ $this->params['pageTitle']     = $this->title;
 $this->params['content-fixed'] = true;
 $this->params['pageIcon']      = '<?= $generator->generalIcon ?>';
 $this->params['place']         = '<?= $generator->menuPlace ?>';
-$this->params['content-fixed'] = true;
 ?>
 <div class="card card-primary card-outline">
     <div class="card-header">
         <?= "<?= " ?>Html::a('<i class="fas fa-edit"></i> Изменить', ['update', <?= $urlParams ?>], ['class' => 'btn btn-success']) ?>
-        <?= "<?= " ?>Html::a('<i class="fas fa-times"></i> Удалить', ['delete', <?= $urlParams ?>], [
+        <?= "<?= " ?>Html::button('<i class="fas fa-times"></i> Удалить',
+        [
             'class' => 'btn btn-danger',
-                'data' => [
-                'toggle'        => 'confirm',
-                'method'        => 'post',
-                'title'         => Yii::t('app', 'CONFIRM_TITLE'),
-                'description'   => 'Вы уверены что хотите удалить данную запись?',
+            'data'  => [
+                'title'        => Yii::t('app', 'BTN_DELETE'),
+                'method'       => "post",
+                'pjax'         => 0,
+                'action'       => "confirmation",
+                'action-url'   => Url::to(['delete', <?= $urlParams ?>]),
+                'action-title' => Yii::t('app', 'CONFIRM_DELETE')
             ]
         ]) ?>
     </div>

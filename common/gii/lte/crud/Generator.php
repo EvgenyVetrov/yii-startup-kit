@@ -304,6 +304,10 @@ class Generator extends \yii\gii\Generator
             return 'ntext';
         } elseif (stripos($column->name, 'time') !== false && $column->phpType === 'integer') {
             return 'datetime';
+        } elseif (stripos($column->name, 'created_at') !== false && $column->phpType === 'integer') {
+            return 'datetime';
+        } elseif (stripos($column->name, 'updated_at') !== false && $column->phpType === 'integer') {
+            return 'datetime';
         } elseif (stripos($column->name, 'email') !== false) {
             return 'email';
         } elseif (preg_match('/(\b|[_-])url(\b|[_-])/i', $column->name)) {

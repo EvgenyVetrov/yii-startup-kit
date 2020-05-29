@@ -5,7 +5,6 @@ namespace modules\site\controllers\backend;
 use Yii;
 use modules\site\models\backend\Pages;
 use modules\site\models\backend\SearchPages;
-use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -22,20 +21,11 @@ class PagesController extends Controller
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::class,
+                'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
                 ],
             ],
-            'access' => [
-                'class' => AccessControl::class,
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'roles' => ['pages']
-                    ]
-                ],
-            ]
         ];
     }
 

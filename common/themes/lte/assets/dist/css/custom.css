@@ -132,3 +132,11 @@
 .has-error .form-control-feedback {
     color: #a94442;
 }
+
+.action-column {
+    min-width: 6.5rem;
+}
+
+.tooltip-inner {
+    max-width: 265px;
+}
