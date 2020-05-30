@@ -3,6 +3,8 @@
 namespace modules\site\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\web\NotFoundHttpException;
 
 /**
  * This is the model class for table "pages_blocks".
@@ -18,6 +20,9 @@ use Yii;
  */
 class BasePagesBlocks extends \yii\db\ActiveRecord
 {
+    const STATUS_DRAFT  = 0;
+    const STATUS_ACTIVE = 1;
+
     /**
      * {@inheritdoc}
      */
@@ -46,13 +51,50 @@ class BasePagesBlocks extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'Название',
             'alias' => 'Alias',
             'content' => 'Content',
-            'own_description' => 'Own Description',
-            'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'own_description' => 'Внутреннее примечание',
+            'status' => 'Статус',
+            'created_at' => 'Создано',
+            'updated_at' => 'Обновлено',
         ];
+    }
+
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::class,
+        ];
+    }
+
+
+    /**
+     * Возвращает список статусов
+     * @return array
+     */
+    public static function statusLabels() {
+        return [
+            self::STATUS_DRAFT  => 'черновик',
+            self::STATUS_ACTIVE => 'активен'
+        ];
+    }
+
+
+
+    /**
+     * Поиск модели и обработка эксцепшенов
+     * чтоб каждый раз не писать в контроллерах этот метод
+     *
+     * @param $id
+     * @return null|static
+     * @throws NotFoundHttpException
+     */
+    public static function findModel($id) {
+        if (($model = self::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('Блока #'. $id .' не существует');
+        }
     }
 }

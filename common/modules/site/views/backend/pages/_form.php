@@ -89,9 +89,7 @@ use yii\widgets\ActiveForm;
                 </div>
 
 
-                <div class="col-md-6">
-                    <?= $form->field($model, 'blocks_ids')->textarea(['rows' => 6]) ?>
-                </div>
+                <div id="page-blocks-container" class="col-md-12" >blocks</div>
 
 
 

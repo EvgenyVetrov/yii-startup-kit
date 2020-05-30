@@ -2,6 +2,7 @@
 
 namespace modules\site\controllers\backend;
 
+use modules\site\models\backend\Pages;
 use Yii;
 use modules\site\models\backend\PagesBlocks;
 use modules\site\models\backend\SearchPagesBlocks;
@@ -21,7 +22,7 @@ class PagesBlocksController extends Controller
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
                     'delete' => ['POST'],
                 ],
@@ -108,6 +109,19 @@ class PagesBlocksController extends Controller
 
         return $this->redirect(['index']);
     }
+
+
+    public function actionPageBlocks($page_id)
+    {
+        $pageModel = Pages::findModel($page_id);
+        $dataProvider = $pageModel->getPageBlocksProvider();
+
+        return $this->renderAjax('_binded_blocks', [
+            'dataProvider'   => $dataProvider,
+            'dropdownBlocks' => $pageModel->getDropdownBlocks()
+        ]);
+    }
+
 
     /**
      * Finds the PagesBlocks model based on its primary key value.

@@ -3,6 +3,8 @@
 namespace modules\site\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\web\NotFoundHttpException;
 
 /**
  * This is the model class for table "pages".
@@ -109,4 +111,28 @@ class BasePages extends \yii\db\ActiveRecord
         ];
     }
 
+
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::class,
+        ];
+    }
+
+
+    /**
+     * Поиск модели и обработка эксцепшенов
+     * чтоб каждый раз не писать в контроллерах этот метод
+     *
+     * @param $user_id
+     * @return null|static
+     * @throws NotFoundHttpException
+     */
+    public static function findModel($id) {
+        if (($model = self::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('Страницы #'. $id .' не существует');
+        }
+    }
 }

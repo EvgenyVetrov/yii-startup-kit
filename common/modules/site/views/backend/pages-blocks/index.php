@@ -35,7 +35,12 @@ $this->params['place']    = 'site-pages-blocks';
             //'own_description',
             // 'status',
             // 'created_at:datetime',
-            'updated_at:datetime',
+            [
+                'attribute'      => 'updated_at',
+                'label' => 'обновлено',
+                'format'=> ['date', 'HH:mm &#160; dd.MM.Y'],
+            ],
+
             [
                 'class' => 'yii\grid\ActionColumn',
                 'template' => '{view} {update} {delete}',
