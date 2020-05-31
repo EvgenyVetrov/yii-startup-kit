@@ -86,14 +86,50 @@ JS;
 
 $this->registerJs($jsFunc, \yii\web\View::POS_END);
 
-
+$urlDelete = \yii\helpers\Url::to(['pages/delete-block']);
 $js = <<<JS
-    //alert(44);
     getPageBlocks();
 
     $('body').on('click', '#add-block-btn', function(event) {
         event.preventDefault();
         addNewBlock();
     });
+    
+    $('body').on('click', '[data-action=delete-page-block]', function (event) {
+        event.preventDefault();
+        
+        var blockId = $(event.target).closest('[data-action=delete-page-block]').data('block-id');
+        
+        submitWaiter();
+        $.ajax({
+            type: 'GET',
+            url: '$urlDelete',
+            data: {
+                page_id: $model->id,
+                block_id: blockId
+            },
+            success: function(data) {
+                if (data.status == 'success') {
+                    getPageBlocks();
+                } 
+                if (data.status == 'warning') {
+                    Swal.close();
+                    swal.fire('Внимание!', data.message, 'warning');
+                } 
+                if (data.status == 'error') {
+                    Swal.close();
+                    swal.fire('Ошибка!', data.message, 'error');
+                }
+            },
+            error: function (data, b) {
+                Swal.close();
+                if( data.status >= 400 && data.status < 600) {
+                    ajaxError(data, 'delete-page-block');
+                }
+            },
+        });
+        
+    });
 JS;
+
 $this->registerJs($js, \yii\web\View::POS_READY);

@@ -11,18 +11,18 @@ use yii\widgets\ActiveForm;
 
 <?php $form = ActiveForm::begin(); ?>
 
-<div class="card card-primary">
+<div class="card card-primary <?= $model->isNewRecord ? '' : 'collapsed-card' ?>">
     <div class="card-header">
         <h3 class="card-title">Общие данные</h3>
 
         <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-<?= $model->isNewRecord ? 'minus' : 'plus' ?>"></i>
             </button>
         </div>
         <!-- /.card-tools -->
     </div>
     <!-- /.card-header -->
-    <div class="card-body" style="display: block;">
+    <div class="card-body" style="display: <?= $model->isNewRecord ? 'block' : 'none' ?>;">
         <div class="row">
             <div class="col-md-6">
                 <?= $form->field($model, 'name')->textInput(['maxlength' => true])
@@ -57,17 +57,18 @@ use yii\widgets\ActiveForm;
     <!-- /.card-body -->
 </div>
 
-<div class="card card-success">
+<div class="card card-success  <?= $model->isNewRecord ? '' : 'collapsed-card' ?>">
     <div class="card-header">
         <h3 class="card-title">Содержимое страницы</h3>
 
         <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-<?= $model->isNewRecord ? 'minus' : 'plus' ?>"></i>
             </button>
         </div>
         <!-- /.card-tools -->
     </div>
-    <div class="card-body">
+    <div class="card-body" style="display: <?= $model->isNewRecord ? 'block' : 'none' ?>;">
 
             <div class="row">
 
@@ -89,7 +90,9 @@ use yii\widgets\ActiveForm;
                 </div>
 
 
-                <div id="page-blocks-container" class="col-md-12" >blocks</div>
+                <div id="page-blocks-container" class="col-md-12" >
+                    Блоки можно привязать к странице после создания страницы.
+                </div>
 
 
 
@@ -97,18 +100,18 @@ use yii\widgets\ActiveForm;
     </div>
 </div>
 
-<div class="card card-warning">
+<div class="card card-warning  <?= $model->isNewRecord ? '' : 'collapsed-card' ?>">
     <div class="card-header">
         <h3 class="card-title">SEO</h3>
 
         <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                <i class="fas fa-minus"></i>
+                <i class="fas fa-<?= $model->isNewRecord ? 'minus' : 'plus' ?>"></i>
             </button>
         </div>
         <!-- /.card-tools -->
     </div>
-    <div class="card-body">
+    <div class="card-body" style="display: <?= $model->isNewRecord ? 'block' : 'none' ?>;">
         <div class="row">
             <div class="col-md-12">
                 <?= $form->field($model, 'custom_head')->textarea(['rows' => 6]) ?>

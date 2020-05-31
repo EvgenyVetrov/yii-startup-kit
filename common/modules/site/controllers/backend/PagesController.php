@@ -146,6 +146,46 @@ class PagesController extends Controller
     }
 
 
+
+    /**
+     * Удаление привязки блока
+     *
+     * @param $page_id
+     * @param $block_id
+     * @return array
+     * @throws NotFoundHttpException
+     */
+    public function actionDeleteBlock($page_id, $block_id) {
+        Yii::$app->response->format = yii\web\Response::FORMAT_JSON; /* клиент принимает ответ в json */
+        $pageModel = Pages::findModel($page_id);
+        $pagesBlockIds = $pageModel->getPagesBlocksIds();
+        if (!in_array((int) $block_id, $pagesBlockIds)) {
+            return [
+                'status'  => 'warning',
+                'message' => 'Блок #'.$block_id.' уже не связан с данной страницей'
+            ];
+        }
+
+        $pageModel->deletePageBlock((int) $block_id);
+        if ($pageModel->save()) {
+            return [
+                'status'  => 'success',
+                'message' => 'Блок отвязан от страницы'
+            ];
+        }
+
+        return [
+            'status'     => 'error',
+            'message'    => 'Ошибка сохранения страницы.',
+            'errorsList' => $pageModel->getErrors()
+        ];
+
+    }
+
+
+
+
+
     /**
      * Finds the Pages model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

@@ -39,7 +39,8 @@ class Pages extends BasePages
     public function addPageBlock(int $block_id)
     {
         // если уже в масииве, то добавлять не надо
-        if (in_array($block_id, $this->getPagesBlocksIds())) {
+        if (in_array($block_id, $this->getPagesBlocksIds()))
+        {
             return true;
         }
 
@@ -48,6 +49,30 @@ class Pages extends BasePages
         asort($newArr);
         $this->blocks_ids = implode(',', $newArr);
     }
+
+
+
+    /**
+     * Отвязка блока от страницы
+     * без сохранения
+     *
+     * @param int $block_id
+     * @return bool
+     */
+    public function deletePageBlock(int $block_id)
+    {
+        // если уже НЕ масииве, то удалять не надо
+        if (!in_array($block_id, $this->getPagesBlocksIds()))
+        {
+            return true;
+        }
+
+        $newArr = $this->getPagesBlocksIds();
+        $key = array_search($block_id, $newArr);
+        unset($newArr[$key]);
+        $this->blocks_ids = implode(',', $newArr);
+    }
+
 
 
     /**

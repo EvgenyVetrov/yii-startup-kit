@@ -17,8 +17,8 @@
     <div class="col-md-8">
         <?= \yii\helpers\Html::dropDownList('added_block', 'null', $dropdownBlocks, [
             'class'  => 'form-control select2',
-            'id'     => 'add-block-selector'
-            //'style'  => 'width: 100%;',
+            'id'     => 'add-block-selector',
+            'style'  => 'width: 100%;',
         ]); ?>
 
     </div>
@@ -37,8 +37,28 @@
         'name',
         'alias',
         [
-            'class' => 'yii\grid\ActionColumn',
-            'template' => '{view} {update} {delete}',
+            'class'    => 'yii\grid\ActionColumn',
+            'template' => '<div class="text-right">{update} {delete}</div>',
+            'buttons'  => [
+                'update' => function ($url, $model, $key) {
+                    return \yii\helpers\Html::a('<i class="fa fa-edit"></i> ' /*. Yii::t('app', 'BTN_UPDATE')*/, $url, [
+                        'class'     => 'btn btn-xs btn-warning',
+                        'title'     => Yii::t('app', 'BTN_UPDATE'),
+                        'data-pjax' => 0,
+                    ]);
+                },
+                'delete' => function ($url, $model, $key) {
+                    return '
+                    <span class="btn btn-xs btn-danger"  
+                            title="Отвязать блок от страницы" 
+                            data-pjax="0" 
+                            data-block-id="'.$model->id.'"
+                            data-action="delete-page-block"  >
+                                <i class="fa fa-times"></i>
+                    </span>
+                    ';
+                },
+            ]
         ],
     ],
 ]);
