@@ -30,6 +30,27 @@ class Pages extends BasePages
 
 
     /**
+     * Добавление нового блока к старнице
+     * без сохранения
+     *
+     * @param int $block_id
+     * @return bool
+     */
+    public function addPageBlock(int $block_id)
+    {
+        // если уже в масииве, то добавлять не надо
+        if (in_array($block_id, $this->getPagesBlocksIds())) {
+            return true;
+        }
+
+        $newArr = $this->getPagesBlocksIds();
+        $newArr[] = $block_id;
+        asort($newArr);
+        $this->blocks_ids = implode(',', $newArr);
+    }
+
+
+    /**
      * @return array
      */
     public function getDropdownBlocks()

@@ -25,8 +25,10 @@ $this->params['place']    = 'site-pages';
 <?php
 
 $url = \yii\helpers\Url::to(['pages-blocks/page-blocks', 'page_id' => $model->id]);
+$urlSave = \yii\helpers\Url::to(['pages/save-block', 'page_id' => $model->id]);
 
-$js = <<<JS
+$jsFunc = <<<JS
+
     function getPageBlocks() {
         $.ajax({
             type: 'GET',
@@ -38,14 +40,60 @@ $js = <<<JS
                 if( data.status >= 400 && data.status < 600) {
                     ajaxError(data, 'getPageBlocks()');
                 }
+            }, 
+            complete: function() {
+                if (swal.isVisible() && Swal.isLoading()) { Swal.close(); } 
+                
             }
         });
     }
     
     
     function addNewBlock() {
-        $('')
+        var blockId = $(document).find('#add-block-selector').val();
+        if (!blockId) { return false; } 
+        submitWaiter();
+        $.ajax({
+            type: 'GET',
+            url: '$urlSave',
+            data: {
+                page_id: $model->id,
+                block_id: blockId
+            },
+            success: function(data) {
+                if (data.status == 'success') {
+                    getPageBlocks();
+                } 
+                if (data.status == 'warning') {
+                    Swal.close();
+                    swal.fire('Внимание!', data.message, 'warning');
+                } 
+                if (data.status == 'error') {
+                    Swal.close();
+                    swal.fire('Ошибка!', data.message, 'error');
+                }
+            },
+            error: function (data, b) {
+                Swal.close();
+                if( data.status >= 400 && data.status < 600) {
+                    ajaxError(data, 'getPageBlocks()');
+                }
+            },
+        });
+        
     }
 JS;
 
-$this->registerJs($js, \yii\web\View::POS_END);
+$this->registerJs($jsFunc, \yii\web\View::POS_END);
+
+
+$js = <<<JS
+    //alert(44);
+    getPageBlocks();
+
+    $('body').on('click', '#add-block-btn', function(event) {
+        event.preventDefault();
+        addNewBlock();
+    });
+JS;
+$this->registerJs($js, \yii\web\View::POS_READY);

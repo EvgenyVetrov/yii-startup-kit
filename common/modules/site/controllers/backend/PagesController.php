@@ -21,7 +21,7 @@ class PagesController extends Controller
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
                     'delete' => ['POST'],
                 ],
@@ -108,6 +108,43 @@ class PagesController extends Controller
 
         return $this->redirect(['index']);
     }
+
+
+    /**
+     * Добавление нового блока
+     *
+     * @param $page_id
+     * @param $block_id
+     * @return array
+     * @throws NotFoundHttpException
+     */
+    public function actionSaveBlock($page_id, $block_id) {
+        Yii::$app->response->format = yii\web\Response::FORMAT_JSON; /* клиент принимает ответ в json */
+        $pageModel = Pages::findModel($page_id);
+        $pagesBlockIds = $pageModel->getPagesBlocksIds();
+        if (in_array((int) $block_id, $pagesBlockIds)) {
+            return [
+                'status'  => 'warning',
+                'message' => 'Блок #'.$block_id.' уже привязан к данной странице'
+            ];
+        }
+
+        $pageModel->addPageBlock((int) $block_id);
+        if ($pageModel->save()) {
+            return [
+                'status'  => 'success',
+                'message' => 'Блок прикреплен к странице'
+            ];
+        }
+
+        return [
+            'status'     => 'error',
+            'message'    => 'Ошибка сохранения страницы.',
+            'errorsList' => $pageModel->getErrors()
+        ];
+
+    }
+
 
     /**
      * Finds the Pages model based on its primary key value.

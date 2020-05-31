@@ -101,10 +101,21 @@ function afterConfirmationDelete(element) {
 }
 
 
+function submitWaiter(message) {
+    if (!message) { message = 'подождите...'; }
+    Swal.fire({
+        title: message,
+        timer: 15000,
+        onBeforeOpen: () => {
+            Swal.showLoading();
+        },
+    });
+}
+
 initSwalConfirmation();
 
+
 document.addEventListener('DOMContentLoaded', function(){ // Аналог $(document).ready(function(){
-                                                          // Если должен быть найден один элемент
     $(function () {
         $('[data-toggle="tooltip"]').tooltip({
             html: true
