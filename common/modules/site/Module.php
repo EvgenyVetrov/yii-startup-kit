@@ -38,10 +38,11 @@ class Module extends \common\components\Module {
     public function registerTranslations()
     {
         Yii::$app->i18n->translations['modules/site/*'] = [
-            'class' => 'yii\i18n\PhpMessageSource',
+            'class'    => 'yii\i18n\PhpMessageSource',
             'basePath' => '@modules/site/messages',
-            'fileMap' => [
-                'modules/site/main' => 'main.php'
+            'fileMap'  => [
+                'modules/site/main'        => 'main.php',
+                'modules/site/filemanager' => 'filemanager.php'
             ]
         ];
     }

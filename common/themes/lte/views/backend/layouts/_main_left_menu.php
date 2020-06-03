@@ -61,6 +61,12 @@ use yii\helpers\Url;
                                     <p>Отдельные блоки</p>
                                 </a>
                             </li>
+                            <li id="place-file-manager" class="nav-item">
+                                <a href="<?= Url::to(['/site/file-manager/index']) ?>"  class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Файловый менеджер</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 <?php endif ?>
