@@ -45,7 +45,7 @@ use yii\helpers\Url;
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-sitemap"></i>
-                            <p>Страницы сайта</p>
+                            <p>Содержимое сайта</p>
                             <i class="right fas fa-angle-left"></i>
                         </a>
                         <ul class="nav nav-treeview ">
@@ -65,6 +65,12 @@ use yii\helpers\Url;
                                 <a href="<?= Url::to(['/site/file-manager/index']) ?>"  class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Файловый менеджер</p>
+                                </a>
+                            </li>
+                            <li id="place-file-manager" class="nav-item">
+                                <a href="<?= Url::to(['/site/sitemap/dashboard']) ?>"  class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Sitemap</p>
                                 </a>
                             </li>
                         </ul>

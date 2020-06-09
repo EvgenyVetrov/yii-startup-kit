@@ -81,8 +81,9 @@ $js = <<<JS
 
 function initGenerateButtonHandler() {
     $('#sitemap-generate').on('click', function(event) {
+
         event.preventDefault();
-        swal({
+        swal.fire({
             title: 'Перегенерировать sitemap морды сайта?',
             html: "<small>Будет обновлен только sitemap файл со страницами из морды сайта. Sitemap объявлений или индексный sitemap останутся без изменений</small>",
             type: 'question',

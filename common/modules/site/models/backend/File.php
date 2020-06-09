@@ -58,7 +58,7 @@ class File extends Item
     {
         $file       = new File();
         $fm = new FileManager();
-        $file->root = $fm->fullUploadPath;
+        $file->root = $fm->getFullUploadPath();
         $file->path = $path;
 
         if ($file->type != 'file') {

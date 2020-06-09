@@ -11,7 +11,7 @@ namespace modules\site\components;
 class FileManager
 {
     public $uploadPath = '@files';
-    public $urlPath = '@files';
+    public $urlPath = '@filesUrl';
 
     public $icons = []; // @deprecated
 

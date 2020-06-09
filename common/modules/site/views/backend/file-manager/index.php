@@ -52,10 +52,19 @@ echo \yii\grid\GridView::widget([
             'class'     => 'yii\grid\DataColumn',
             'attribute' => 'name',
             'value'     => function ($item) {
+                $options = [];
+                $isFile = false;
+                if ($item instanceof File) {
+                    $isFile               = true;
+                    $options['download']  = true;
+                    $options['data-pjax'] = 0;
+                }
+
                 return Html::a('<i class="'.$item->icon.' fa-fw mr-2"></i>'. $item->name,
-                        $item instanceof File ? $item->url : ['index', 'path' => $item->path]);
+                        $isFile ? $item->url : ['index', 'path' => $item->path],
+                        $options);
             },
-            'format'    => 'html'
+            'format'    => 'raw'
         ],
         [
             'class' => 'yii\grid\DataColumn',
@@ -84,17 +93,77 @@ echo \yii\grid\GridView::widget([
                     'path' => $model->path
                 ];
             },
-            'visibleButtons' => [
-                'view'   => function ($model) {
-                    return false;
+            'buttons' => [
+                'copypaste' => function ($url, $model, $key) {
+
+                if (!isset($model->scenario)) { return false; }
+                if ($model instanceof Directory) { return false; }
+                $url = $model->url;
+                    return '
+                    <span class="btn btn-xs btn-info"  
+                            title="Скопировать ссылку на файл" 
+                            data-pjax="0"
+                            data-action-type="url"
+                            data-action="copypaste"
+                            data-origin-url=""
+                            data-result-text="<code>'.$url.'</code>" 
+                            data-copy="'.$url.'" 
+                            data-action-title="Скопировать">
+                                <i class="fas fa-link"></i>
+                    </span>
+                    ';
+
+
+                    /*return Html::a('<i class="fa fa-times"></i> ' . Yii::t('app', 'BTN_DELETE'), $url, [
+                        'class' => 'btn btn-xs btn-danger', 'data-method' => 'post',
+                        'title' => Yii::t('app', 'BTN_DELETE'),
+                        'data'  => [
+                            'pjax'           => 0,
+                            'action'         => 'confirm',
+                            'action-url'     => $url,
+                            'action-title'   => Yii::t('app', 'CONFIRM_DELETE'),
+                        ],
+                    ]);*/
                 },
-                'update' => function ($model) {
-                    return $model instanceof Directory;
+                'update' => function ($url, $model, $key) {
+                    if (!isset($model->scenario)) { return false; }
+                    return Html::a('<i class="fa fa-edit"></i> ' /*. Yii::t('app', 'BTN_UPDATE')*/, $url, [
+                        'class'     => 'btn btn-xs btn-warning',
+                        'title'     => Yii::t('app', 'BTN_UPDATE'),
+                        'data-pjax' => 0,
+                    ]);
                 },
-                'delete' => function ($url, $model) {
-                    return $model instanceof Item;
+                'delete' => function ($url, $model, $key) {
+
+                if (!isset($model->scenario)) { return false; }
+
+                $url = \yii\helpers\Url::to($url);
+                    return '
+                    <span class="btn btn-xs btn-danger"  
+                            title="'.Yii::t('app', 'BTN_DELETE').'" 
+                            data-method="post" 
+                            data-pjax="0" 
+                            data-action="confirmation" 
+                            data-action-url="'.$url.'" 
+                            data-action-title="'.Yii::t('app', 'CONFIRM_DELETE').'">
+                                <i class="fa fa-times"></i>
+                    </span>
+                    ';
+
+
+                    /*return Html::a('<i class="fa fa-times"></i> ' . Yii::t('app', 'BTN_DELETE'), $url, [
+                        'class' => 'btn btn-xs btn-danger', 'data-method' => 'post',
+                        'title' => Yii::t('app', 'BTN_DELETE'),
+                        'data'  => [
+                            'pjax'           => 0,
+                            'action'         => 'confirm',
+                            'action-url'     => $url,
+                            'action-title'   => Yii::t('app', 'CONFIRM_DELETE'),
+                        ],
+                    ]);*/
                 }
-            ]
+            ],
+            'template' => '<div class="text-right">{copypaste} {update} {delete}</div>'
         ],
     ],
 ]);

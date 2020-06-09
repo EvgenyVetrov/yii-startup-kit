@@ -112,7 +112,47 @@ function submitWaiter(message) {
     });
 }
 
+
+/* обработчик копирования текста в буфер обмена */
+function initActionCopyPaste()
+{
+    $('body').on('click', '[data-action=copypaste]', function (event) {
+        event.preventDefault();
+        var element  = $(event.target).closest('[data-action]');
+        var copyText = element.data('copy');
+        var actionType = element.data('action-type');
+        if (actionType == 'url') {
+            var originUrlPrefix = element.data('origin-url') ? window.location.origin : '';
+        }
+
+        var resultMessage   = element.data('result-text');
+
+        var tmp   = document.createElement('INPUT'), // Создаём новый текстовой input
+            focus = document.activeElement; // Получаем ссылку на элемент в фокусе (чтобы не терять фокус)
+
+        tmp.value = originUrlPrefix + copyText; // Временному input вставляем текст для копирования
+        document.body.appendChild(tmp); // Вставляем input в DOM
+        tmp.select(); // Выделяем весь текст в input
+        document.execCommand('copy'); // Магия! Копирует в буфер выделенный текст (см. команду выше)
+        document.body.removeChild(tmp); // Удаляем временный input
+        focus.focus(); // Возвращаем фокус туда, где был
+
+        swal.fire({
+            title: 'Скопировано в буфер!',
+            html: resultMessage,
+            type: 'success',
+            showCancelButton: false,
+            confirmButtonColor: '#a5dd86',
+            confirmButtonText: 'OK'
+        });
+    });
+}
+
+
 initSwalConfirmation();
+initActionCopyPaste();
+
+
 
 
 document.addEventListener('DOMContentLoaded', function(){ // Аналог $(document).ready(function(){

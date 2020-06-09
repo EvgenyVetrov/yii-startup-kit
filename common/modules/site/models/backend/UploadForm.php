@@ -5,6 +5,7 @@ namespace modules\site\models\backend;
 
 use yii\base\Model;
 use yii\web\UploadedFile;
+use modules\site\Module;
 
 class UploadForm extends Model
 {
@@ -40,7 +41,7 @@ class UploadForm extends Model
     public function attributeLabels()
     {
         return [
-            'files' => \Yii::t('filemanager', 'Files')
+            'files' => Module::t('filemanager', 'Files')
         ];
     }
 
