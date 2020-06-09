@@ -121,23 +121,42 @@ use yii\widgets\ActiveForm;
             </div>
 
             <div class="col-md-6">
+                <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+            </div>
+            <div class="col-md-6">
                 <?= $form->field($model, 'robots')->textInput(['maxlength' => true]) ?>
             </div>
             <div class="col-md-6">
-                <?= $form->field($model, 'keywords')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'keywords')->textarea(['maxlength' => true, 'rows' => 3]) ?>
             </div>
             <div class="col-md-6">
-                <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'description')->textarea(['maxlength' => true, 'rows' => 3]) ?>
             </div>
-            <div class="col-md-6">
-                <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+
+            <div class="col-md-4">
+                <?= $form->field($model, 'sitemap_lastmod')
+                    ->textInput(['maxlength' => true])
+                    ->hint('Дата крайнего изменения страницы в формате dd-mm-yyyy. Если не указывать, берется дата последнего изменения из базы (updated_at).') ?>
             </div>
-            <div class="col-md-6">                <?= $form->field($model, 'sitemap_lastmod')->textInput(['maxlength' => true]) ?>
+            <div class="col-md-4">
+                <?= $form->field($model, 'sitemap_changefreq')->dropDownList( \modules\site\models\backend\Sitemap::changefreqValues(), [
+                    'class'   => 'form-control select2',
+                    'style'   => 'width: 100%;'
+                ])->hint('Как часто меняется содержимое на этой странце') ?>
             </div>
-            <div class="col-md-6">                <?= $form->field($model, 'sitemap_changefreq')->textInput() ?>
-            </div>
-            <div class="col-md-6">
-                <?= $form->field($model, 'sitemap_priority')->textInput() ?>
+            <div class="col-md-4">
+                <?php
+                $options = [];
+                if ($model->sitemap_priority === null) {
+                    $options[5] = ['selected' => 'selected'];
+                }
+                ?>
+                <?= $form->field($model, 'sitemap_priority')->dropDownList( \modules\site\models\backend\Sitemap::priorityValues(), [
+                    'class'   => 'form-control select2',
+                    'style'   => 'width: 100%;',
+                    'options' => $options
+                ])->hint('Относительный приоритет важности страниц для обхода поисковыми роботами. По умолчанию 0.5') ?>
+
             </div>
         </div>
 

@@ -49,11 +49,23 @@ $this->params['place']         = 'site-pages';
             'title',
             'blocks_ids:ntext',
             'sitemap_lastmod',
-            'sitemap_changefreq',
-            'sitemap_priority',
-            'type',
+            [
+                'attribute' => 'sitemap_changefreq',
+                'value' => \modules\site\models\backend\Sitemap::changefreqValues()[$model->sitemap_changefreq] . ' [' .$model->sitemap_changefreq . '] '
+            ],
+            [
+                'attribute' => 'sitemap_priority',
+                'value' => $model->sitemap_priority / 10
+            ],
+            [
+                'attribute' => 'type',
+                'value' => \modules\site\models\backend\Pages::typeLabels()[$model->type]
+            ],
             'own_description',
-            'status',
+            [
+                'attribute' => 'status',
+                'value' => \modules\site\models\backend\Pages::statusLabels()[$model->status]
+            ],
             'created_at:datetime',
             'updated_at:datetime',
             ],

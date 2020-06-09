@@ -3,7 +3,7 @@ return [
     'frontend-version'      => '1.0.10.4',
     'backend-version'       => '1.0.10.8', // будем бэк отдельно нумеровать
 
-    'domain'                => 'https://zakupator.org/',
+    'domain'                => 'http://yii-startup-kit.loc', // без слеша в конце
     'email'                 => 'site@zakupator.org',
     'robots'                => (YII_ENV == 'dev') ? 'none' : 'all', // содержимое для метатега с роботами. Есть еще условие в лейауте
     'expireRecovery'        => 86400,

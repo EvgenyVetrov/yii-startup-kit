@@ -67,7 +67,7 @@ use yii\helpers\Url;
                                     <p>Файловый менеджер</p>
                                 </a>
                             </li>
-                            <li id="place-file-manager" class="nav-item">
+                            <li id="place-sitemap" class="nav-item">
                                 <a href="<?= Url::to(['/site/sitemap/dashboard']) ?>"  class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Sitemap</p>
@@ -136,10 +136,10 @@ use yii\helpers\Url;
                                     <p>Общие настройки</p>
                                 </a>
                             </li>
-                            <li id="place-sitemap" class="nav-item">
+                            <li id="place-sitemap-old" class="nav-item">
                                 <a href="<?= Url::to(['/sitemap/default/dashboard']) ?>"  class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Sitemap</p>
+                                    <p>old Sitemap</p>
                                 </a>
                             </li>
                         </ul>
@@ -222,6 +222,41 @@ use yii\helpers\Url;
                             <a href="<?= Url::to(['/main/settings/module/blog']) ?>" class="nav-link">
                                 <i class="nav-icon fas fa-cogs"></i>
                                 <p>Настройки блога</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-info"></i>
+                        <p>О системе</p>
+                        <i class="right fas fa-angle-left"></i>
+                    </a>
+                    <ul class="nav nav-treeview ">
+                        <li id="place-short-info" class="nav-item">
+                            <a href="<?= Url::to(['/blog/categories/index']) ?>" class="nav-link">
+                                <i class="nav-icon far fa-circle"></i>
+                                <p>Краткая информация</p>
+                            </a>
+                        </li>
+                        <li id="place-about-technologies" class="nav-item">
+                            <a href="<?= Url::to(['/blog/posts/index']) ?>" class="nav-link">
+                                <i class="nav-icon far fa-circle"></i>
+                                <p>О технологиях</p>
+                            </a>
+                        </li>
+                        <li id="place-tech-support" class="nav-item">
+                            <a href="<?= Url::to(['/blog/tags/index']) ?>" class="nav-link">
+                                <i class="nav-icon far fa-circle"></i>
+                                <p>Поддержка</p>
+                            </a>
+                        </li>
+                        <li id="place-documentation" class="nav-item">
+                            <a href="<?= Url::to(['/main/settings/module/blog']) ?>" class="nav-link">
+                                <i class="nav-icon far fa-circle"></i>
+                                <p>Документация</p>
                             </a>
                         </li>
 
