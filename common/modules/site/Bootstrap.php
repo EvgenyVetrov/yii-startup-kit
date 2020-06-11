@@ -26,6 +26,7 @@ class Bootstrap implements BootstrapInterface
             $rules['error']          = 'site/default/error';
             $rules['policy']         = 'site/default/policy';
             $rules['intro']          = 'site/default/intro';
+            $rules['class']          = 'modules\site\components\UrlRule';
             $app->urlManager->addRules($rules, false);
         }
     }
