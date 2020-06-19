@@ -6,11 +6,11 @@
 
 ?>
 
-<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+<nav class="navbar navbar-default navbar-expand-lg pt-0 mb-0" color-on-scroll="100" id="sectionsNav">
     <div class="container">
         <div class="navbar-translate">
-            <a class="navbar-brand pt-5" href="/">
-                <img  height="40" src="/img/logo/zakupator-transparent-sign-mini.png" alt="Главная страница закупатор" title="на главную">
+            <a class="pt-5" href="/">
+                <img  height="90" src="/img/header-icon.png" alt="Главная страница закупатор" title="на главную">
             </a>
 
             <?php if (Yii::$app->params['show_site_description']): ?>
@@ -27,10 +27,26 @@
         </div>
 
         <?php if (Yii::$app->params['show_top_menu']): ?>
-        <div class="collapse navbar-collapse">
+
+        <div class="collapse navbar-collapse flex-column">
             <ul class="navbar-nav ml-auto">
-
-
+                <li class="nav-item pr-20">
+                    <i class="fas fa-phone mr-10"></i> 8 910 305-45-12
+                </li>
+                <li class="nav-item">
+                    |
+                </li>
+                <li class="nav-item pl-20 pr-30">
+                    8 953 475-69-50
+                </li>
+                <li class="nav-item pl-40">
+                    <a class="nav-link" href="#"><i class="fas fa-envelope mr-5"></i> Напишите нам</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-phone-square mr-5"></i> Консультация</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav flex-row ml-auto">
 
                 <li class="dropdown nav-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
